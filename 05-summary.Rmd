@@ -1,0 +1,60 @@
+# Syllable-locked firing rate
+
+## Calculations
+
+PSTH of firing rates for each neuron (column) and syllable type (row).
+Bird 174 and 31 are only produced juvenile song.
+
+
+## Average firing rate
+
+The shaded region is the 95% confidence interval, calculated by bootstrapping.
+Note: the y-axis should be firing rate (Hz)
+
+```{R syllable-locked-rate-density, echo = FALSE, results = "asis"}
+template <- "### Bird %s - Session %s
+
+
+" # dont't forget the newline
+
+
+for (i in seq(nrow(summaryData))) {
+  currentData <- summaryData[i, ]
+  cat(sprintf(template, currentData$BirdID, currentData$SessionIdentifier))
+  images = list.files("Figures/",
+                      pattern=sprintf('Syllable Firing Rate - Density - Session %g - Bird %g ', currentData$SessionIdentifier, currentData$BirdID),
+                      full.name=TRUE, recursive=TRUE)
+  for (j in images) {
+    cat("![](",j,")")
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+
+```
+
+## Rasters
+
+```{R syllable-locked-rate-raster, echo = FALSE, results = "asis"}
+template <- "### Bird %s - Session %s
+
+
+" # dont't forget the newline
+
+
+for (i in seq(nrow(summaryData))) {
+  currentData <- summaryData[i, ]
+  cat(sprintf(template, currentData$BirdID, currentData$SessionIdentifier))
+  images = list.files("Figures/",
+                      pattern=sprintf('Syllable Firing Rate - Raster - Session %g - Bird %g ', currentData$SessionIdentifier, currentData$BirdID),
+                      full.name=TRUE, recursive=TRUE)
+  for (j in images) {
+    cat("![](",j,")")
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+
+```

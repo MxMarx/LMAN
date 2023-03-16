@@ -1,0 +1,53 @@
+# Spike triggered averages
+
+## Figures
+
+```{R STA, echo = FALSE, results = "asis"}
+template <- "### Bird %s - Session %s
+
+
+" # dont't forget the newline
+
+
+for (i in seq(nrow(summaryData))) {
+  currentData <- summaryData[i, ]
+  cat(sprintf(template, currentData$BirdID, currentData$SessionIdentifier))
+  images = list.files("Figures/",
+                      pattern=sprintf('STA - Session %g - Bird %g ', currentData$SessionIdentifier, currentData$BirdID),
+                      full.name=TRUE, recursive=TRUE)
+  for (j in images) {
+    cat("![](",j,")")
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+
+```
+
+# Spike triggered averages - z-score
+
+## Figures
+
+```{R STA-zscore, echo = FALSE, results = "asis"}
+template <- "### Bird %s - Session %s
+
+
+" # dont't forget the newline
+
+
+for (i in seq(nrow(summaryData))) {
+  currentData <- summaryData[i, ]
+  cat(sprintf(template, currentData$BirdID, currentData$SessionIdentifier))
+  images = list.files("Figures/",
+                      pattern=sprintf('STA - zscore - Session %g - Bird %g ', currentData$SessionIdentifier, currentData$BirdID),
+                      full.name=TRUE, recursive=TRUE)
+  for (j in images) {
+    cat("![](",j,")")
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+
+```

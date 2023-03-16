@@ -1,0 +1,33 @@
+<!-- # Test -->
+
+<!-- ```{r test, fig.cap="Summary of the recording sessions", out.width='100%'} -->
+<!-- library(plotly) -->
+<!-- library(scales) -->
+<!-- library(crosstalk) -->
+
+<!-- theme_set(theme_minimal()) -->
+
+<!-- syllable_psth <- read.table("Data/test.csv", header = T, sep = ",") -->
+
+<!-- raw_weekly_data_shared <- SharedData$new(syllable_psth) -->
+
+<!-- filter_select("unit", "Choose country", raw_weekly_data_shared, ~unit) -->
+
+
+
+<!-- p <- ggplot(raw_weekly_data_shared, aes(time, mean_rate, color=as.factor(unit), fill=as.factor(unit), group=1)) + -->
+<!-- facet_grid(vars(SyllableLabel), vars(unit), scales = "free", space = "fixed") + -->
+<!-- # facet_grid(vars(unit), vars(SyllableLabel), scales = "free", space = "free") +  -->
+<!-- geom_line(aes(text=sprintf("Time (ms): %.3g</br></br>Firing rate (Hz): %.3g",time*1000,mean_rate))) + -->
+<!-- geom_ribbon(aes(ymin=ymin, ymax=ymax), alpha=.2, linetype=0) +  -->
+<!-- theme(legend.position = "none")	+ theme(axis.line = element_line(colour = "grey50")) + -->
+<!-- theme(panel.grid.major=element_blank(), panel.backgroun=element_blank(), axis.line=element_line(colour="black"))  -->
+<!--   # annotate("segment", x=-.1, xend=.1, y=0, yend=0) + -->
+<!--   # annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) -->
+<!-- # ggplotly(p) -->
+
+<!-- ggplotly(p, height=800, tooltip = c("text"))  -->
+
+
+
+<!-- ``` -->

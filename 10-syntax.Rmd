@@ -1,0 +1,38 @@
+# Syntax
+
+```{r syntax-graphs, out.width='49%', fig.show='hold', fig.cap='Transition probabilities for bird 6951 and 7358.'}
+knitr::include_graphics(c('Figures/Syntax/graph - bird 7358.png', 'Figures/Syntax/graph - bird 6951.png'))
+```
+
+```{r syntax-tables, out.height='100%', out.width='100%', fig.cap='Transition Tables'}
+library(htmlwidgets)
+library(slickR)
+
+# cP1 <- htmlwidgets::JS("function(slick,index) {
+#                             return '<a>'+dotObj[index]+'</a>';
+#                        }")
+
+cP1 <- htmlwidgets::JS("function(slick,index) {
+                            return '<a>'+(index+1)+'</a>';
+                        }")
+opts <- settings(
+  dots = TRUE,
+  initialSlide = 8,
+  customPaging = cP1,
+  speed = 0,
+  adaptiveHeight = FALSE)
+
+
+filenames = list.files(path = 'Figures/Syntax/', 
+                    pattern = 'transition table - bird', full.names = T)
+
+
+slickR(obj = filenames, height = "70%", width = "70%", padding = 0) + opts
+
+# matches <- regmatches(filenames, gregexpr("[[:digit:]]+", filenames))
+# s2 <- htmltools::tags$script(
+#   sprintf("var dotObj = %s",  jsonlite::toJSON(as.numeric(unlist(matches))))
+# )
+# htmltools::browsable(htmltools::tagList(s2, slick))
+
+```

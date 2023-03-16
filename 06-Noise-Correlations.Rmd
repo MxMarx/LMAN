@@ -1,0 +1,56 @@
+# Noise Correlations
+
+## Synthetic Data
+
+### Independent neurons 
+
+I started by simulating data to validate the method of subtracting the song component.
+First, I simulated two independent neurons which increased in firing rate at separate at separate phases of song.
+
+The lower figure shows that the firing rate over neuron 2 changes with the distance from a spike in neuron one even though their is no causal relation between these neurons. 
+
+```{R synthetic-data-uncorrelated-syllable, fig.cap='Firing rate as a function of time during song for two independent neurons.', out.width="75%", fig.align = "default"}
+knitr::include_graphics("Figures/Noise Correlations/noise - uncorrelated - syllable.png")
+```
+
+
+```{R synthetic-data-uncorrelated-STA, fig.cap='Spike triggered average firing rate for independent two neurons during singing and silence.', out.width="100%", fig.align = "default"}
+knitr::include_graphics("Figures/Noise Correlations/uncorrelated - STA - observed.png")
+```
+
+### Correlated neurons 
+
+Next, I simulated data as described above, expect now neuron 2 has an increased probability of firing shortly after a spike from neuron 1.
+
+```{R synthetic-data-correlated-syllable, fig.cap='Firing rate as a function of time during song for two correlated neurons.', out.width="75%", fig.align = "default"}
+knitr::include_graphics("Figures/Noise Correlations/noise - correlated - syllable.png")
+```
+
+
+```{R synthetic-data-correlated-STA, fig.cap='Spike triggered average firing rate for correlated neurons during singing and silence.', out.width="100%", fig.align = "default"}
+knitr::include_graphics("Figures/Noise Correlations/correlated - STA - observed.png")
+```
+
+## Expected spike-triggered average
+
+For independent neurons with distinct time-varying song-locked firing rates, we can estimate the STA at time lag $\tau$ as $STA(\tau) = \frac{R_i(t) \cdot R_j(t + \tau)^T}{R_i(t) \cdot R_i(t)^T}$ where $R_i(t)$ is the average firing rate of neuron _i_ at time _t_ in song.
+
+In other words, the STA for neuron _i_ and _j_ at time lag $\tau$ is the average firing rate of _i_ at lag $\tau$, weighted by the probability density of _j_.
+
+The black lines in the following figures show that the expected STA matches the observed STA for independent neurons, but not correlated neurons.
+
+```{R synthetic-data-expected-STA, fig.cap='Expected STA calculated for independent neurons with the givin song-modulation.', out.width="100%", fig.align = "default", fig.subcap=c('one plot', 'the other one')}
+knitr::include_graphics("Figures/Noise Correlations/uncorrelated - STA.png")
+knitr::include_graphics("Figures/Noise Correlations/correlated - STA.png")
+
+```
+
+## Song-adjusted STA
+
+The song-adjusted STA is the expected STA subtracted from the observed STA. The STA is equal during song and silence, showing that this method works (at least on synthetic data)!
+
+```{R synthetic-data-song-adjusted-STA, fig.cap='Song-adjusted STA for independent and correlated neurons.', out.width="100%", fig.align = "default", fig.subcap=c('one plot', 'the other one')}
+knitr::include_graphics("Figures/Noise Correlations/uncorrelated - STA - Song adjusted.png")
+knitr::include_graphics("Figures/Noise Correlations/correlated - STA - Song adjusted.png")
+
+```

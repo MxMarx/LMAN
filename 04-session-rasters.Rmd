@@ -1,0 +1,33 @@
+# Session Rasters
+
+## Calculations
+
+The smaller lines at the top of the raster are individual syllables. Shaded areas indicate song.
+The taller lines beneath the syllable raster are spikes from neurons.
+
+Fano factor is calculated as $\frac{s_{ISI}}{\bar{x}_{ISI}}$ with a sliding window of 4 seconds.
+
+## Figures
+
+```{R session-rasters, echo = FALSE, results = "asis"}
+template <- "### Bird %s - Session %s
+
+
+" # dont't forget the newline
+
+
+for (i in seq(nrow(summaryData))) {
+  currentData <- summaryData[i, ]
+  cat(sprintf(template, currentData$BirdID, currentData$SessionIdentifier))
+  images = list.files("Figures/",
+                      pattern=sprintf('fano .* Session %g - Bird %g ', currentData$SessionIdentifier, currentData$BirdID),
+                      full.name=TRUE, recursive=TRUE)
+  for (j in images) {
+    cat("![](",j,")")
+    cat("\n\n")
+  }
+  cat("\n\n")
+}
+
+
+```

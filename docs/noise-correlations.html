@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Noise Correlations | LMAN Project</title>
+  <meta name="description" content="Computational gender studies" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Noise Correlations | LMAN Project" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Computational gender studies" />
+  <meta name="github-repo" content="MxMarx/quantitative-analysis-of-gender-in-fictional-characters/settings" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Noise Correlations | LMAN Project" />
+  
+  <meta name="twitter:description" content="Computational gender studies" />
+  
+
+<meta name="author" content="Ruby Marx" />
+
+
+<meta name="date" content="2023-03-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="syllable-locked-firing-rate.html"/>
+<link rel="next" href="spike-triggered-averages.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="libs/jquery-migrate-3.1.0/jquery-migrate-3.1.0.min.js"></script>
+<link href="libs/slick-1.8.1/slick/slick.css" rel="stylesheet" />
+<link href="libs/slick-1.8.1/slick/slick-theme.css" rel="stylesheet" />
+<script src="libs/slick-1.8.1/slick/slick.min.js"></script>
+<script src="libs/css-resize-1.2.1/ResizeSensor.js"></script>
+<script src="libs/css-resize-1.2.1/ElementQueries.js"></script>
+<link href="libs/slickR-0.0.2/slick.css" rel="stylesheet" />
+<link href="libs/slickR-0.0.2/slick-theme.css" rel="stylesheet" />
+<script src="libs/slickR-0.0.2/slickR.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./introduction.html">LMAN Project</a></li>
+<li><a>Ruby Marx, 2023</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#isi-during-song"><i class="fa fa-check"></i><b>1.1</b> ISI during song</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#syllable-intervals"><i class="fa fa-check"></i><b>1.2</b> Syllable Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="session-rasters.html"><a href="session-rasters.html"><i class="fa fa-check"></i><b>2</b> Session Rasters</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="session-rasters.html"><a href="session-rasters.html#calculations"><i class="fa fa-check"></i><b>2.1</b> Calculations</a></li>
+<li class="chapter" data-level="2.2" data-path="session-rasters.html"><a href="session-rasters.html#figures"><i class="fa fa-check"></i><b>2.2</b> Figures</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="session-rasters.html"><a href="session-rasters.html#bird-31---session-18"><i class="fa fa-check"></i><b>2.2.1</b> Bird 31 - Session 18</a></li>
+<li class="chapter" data-level="2.2.2" data-path="session-rasters.html"><a href="session-rasters.html#bird-174---session-19"><i class="fa fa-check"></i><b>2.2.2</b> Bird 174 - Session 19</a></li>
+<li class="chapter" data-level="2.2.3" data-path="session-rasters.html"><a href="session-rasters.html#bird-174---session-20"><i class="fa fa-check"></i><b>2.2.3</b> Bird 174 - Session 20</a></li>
+<li class="chapter" data-level="2.2.4" data-path="session-rasters.html"><a href="session-rasters.html#bird-174---session-21"><i class="fa fa-check"></i><b>2.2.4</b> Bird 174 - Session 21</a></li>
+<li class="chapter" data-level="2.2.5" data-path="session-rasters.html"><a href="session-rasters.html#bird-6821---session-7"><i class="fa fa-check"></i><b>2.2.5</b> Bird 6821 - Session 7</a></li>
+<li class="chapter" data-level="2.2.6" data-path="session-rasters.html"><a href="session-rasters.html#bird-6821---session-1"><i class="fa fa-check"></i><b>2.2.6</b> Bird 6821 - Session 1</a></li>
+<li class="chapter" data-level="2.2.7" data-path="session-rasters.html"><a href="session-rasters.html#bird-6821---session-10"><i class="fa fa-check"></i><b>2.2.7</b> Bird 6821 - Session 10</a></li>
+<li class="chapter" data-level="2.2.8" data-path="session-rasters.html"><a href="session-rasters.html#bird-6821---session-16"><i class="fa fa-check"></i><b>2.2.8</b> Bird 6821 - Session 16</a></li>
+<li class="chapter" data-level="2.2.9" data-path="session-rasters.html"><a href="session-rasters.html#bird-6951---session-4"><i class="fa fa-check"></i><b>2.2.9</b> Bird 6951 - Session 4</a></li>
+<li class="chapter" data-level="2.2.10" data-path="session-rasters.html"><a href="session-rasters.html#bird-6951---session-8"><i class="fa fa-check"></i><b>2.2.10</b> Bird 6951 - Session 8</a></li>
+<li class="chapter" data-level="2.2.11" data-path="session-rasters.html"><a href="session-rasters.html#bird-6951---session-6"><i class="fa fa-check"></i><b>2.2.11</b> Bird 6951 - Session 6</a></li>
+<li class="chapter" data-level="2.2.12" data-path="session-rasters.html"><a href="session-rasters.html#bird-7108---session-11"><i class="fa fa-check"></i><b>2.2.12</b> Bird 7108 - Session 11</a></li>
+<li class="chapter" data-level="2.2.13" data-path="session-rasters.html"><a href="session-rasters.html#bird-7138---session-2"><i class="fa fa-check"></i><b>2.2.13</b> Bird 7138 - Session 2</a></li>
+<li class="chapter" data-level="2.2.14" data-path="session-rasters.html"><a href="session-rasters.html#bird-7253---session-12"><i class="fa fa-check"></i><b>2.2.14</b> Bird 7253 - Session 12</a></li>
+<li class="chapter" data-level="2.2.15" data-path="session-rasters.html"><a href="session-rasters.html#bird-7312---session-5"><i class="fa fa-check"></i><b>2.2.15</b> Bird 7312 - Session 5</a></li>
+<li class="chapter" data-level="2.2.16" data-path="session-rasters.html"><a href="session-rasters.html#bird-7312---session-15"><i class="fa fa-check"></i><b>2.2.16</b> Bird 7312 - Session 15</a></li>
+<li class="chapter" data-level="2.2.17" data-path="session-rasters.html"><a href="session-rasters.html#bird-7358---session-9"><i class="fa fa-check"></i><b>2.2.17</b> Bird 7358 - Session 9</a></li>
+<li class="chapter" data-level="2.2.18" data-path="session-rasters.html"><a href="session-rasters.html#bird-7358---session-14"><i class="fa fa-check"></i><b>2.2.18</b> Bird 7358 - Session 14</a></li>
+<li class="chapter" data-level="2.2.19" data-path="session-rasters.html"><a href="session-rasters.html#bird-7358---session-17"><i class="fa fa-check"></i><b>2.2.19</b> Bird 7358 - Session 17</a></li>
+<li class="chapter" data-level="2.2.20" data-path="session-rasters.html"><a href="session-rasters.html#bird-7358---session-3"><i class="fa fa-check"></i><b>2.2.20</b> Bird 7358 - Session 3</a></li>
+<li class="chapter" data-level="2.2.21" data-path="session-rasters.html"><a href="session-rasters.html#bird-7358---session-13"><i class="fa fa-check"></i><b>2.2.21</b> Bird 7358 - Session 13</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html"><i class="fa fa-check"></i><b>3</b> Syllable-locked firing rate</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#calculations-1"><i class="fa fa-check"></i><b>3.1</b> Calculations</a></li>
+<li class="chapter" data-level="3.2" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#average-firing-rate"><i class="fa fa-check"></i><b>3.2</b> Average firing rate</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-31---session-18-1"><i class="fa fa-check"></i><b>3.2.1</b> Bird 31 - Session 18</a></li>
+<li class="chapter" data-level="3.2.2" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-19-1"><i class="fa fa-check"></i><b>3.2.2</b> Bird 174 - Session 19</a></li>
+<li class="chapter" data-level="3.2.3" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-20-1"><i class="fa fa-check"></i><b>3.2.3</b> Bird 174 - Session 20</a></li>
+<li class="chapter" data-level="3.2.4" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-21-1"><i class="fa fa-check"></i><b>3.2.4</b> Bird 174 - Session 21</a></li>
+<li class="chapter" data-level="3.2.5" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-7-1"><i class="fa fa-check"></i><b>3.2.5</b> Bird 6821 - Session 7</a></li>
+<li class="chapter" data-level="3.2.6" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-1-1"><i class="fa fa-check"></i><b>3.2.6</b> Bird 6821 - Session 1</a></li>
+<li class="chapter" data-level="3.2.7" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-10-1"><i class="fa fa-check"></i><b>3.2.7</b> Bird 6821 - Session 10</a></li>
+<li class="chapter" data-level="3.2.8" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-16-1"><i class="fa fa-check"></i><b>3.2.8</b> Bird 6821 - Session 16</a></li>
+<li class="chapter" data-level="3.2.9" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-4-1"><i class="fa fa-check"></i><b>3.2.9</b> Bird 6951 - Session 4</a></li>
+<li class="chapter" data-level="3.2.10" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-8-1"><i class="fa fa-check"></i><b>3.2.10</b> Bird 6951 - Session 8</a></li>
+<li class="chapter" data-level="3.2.11" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-6-1"><i class="fa fa-check"></i><b>3.2.11</b> Bird 6951 - Session 6</a></li>
+<li class="chapter" data-level="3.2.12" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7108---session-11-1"><i class="fa fa-check"></i><b>3.2.12</b> Bird 7108 - Session 11</a></li>
+<li class="chapter" data-level="3.2.13" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7138---session-2-1"><i class="fa fa-check"></i><b>3.2.13</b> Bird 7138 - Session 2</a></li>
+<li class="chapter" data-level="3.2.14" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7253---session-12-1"><i class="fa fa-check"></i><b>3.2.14</b> Bird 7253 - Session 12</a></li>
+<li class="chapter" data-level="3.2.15" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7312---session-5-1"><i class="fa fa-check"></i><b>3.2.15</b> Bird 7312 - Session 5</a></li>
+<li class="chapter" data-level="3.2.16" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7312---session-15-1"><i class="fa fa-check"></i><b>3.2.16</b> Bird 7312 - Session 15</a></li>
+<li class="chapter" data-level="3.2.17" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-9-1"><i class="fa fa-check"></i><b>3.2.17</b> Bird 7358 - Session 9</a></li>
+<li class="chapter" data-level="3.2.18" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-14-1"><i class="fa fa-check"></i><b>3.2.18</b> Bird 7358 - Session 14</a></li>
+<li class="chapter" data-level="3.2.19" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-17-1"><i class="fa fa-check"></i><b>3.2.19</b> Bird 7358 - Session 17</a></li>
+<li class="chapter" data-level="3.2.20" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-3-1"><i class="fa fa-check"></i><b>3.2.20</b> Bird 7358 - Session 3</a></li>
+<li class="chapter" data-level="3.2.21" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-13-1"><i class="fa fa-check"></i><b>3.2.21</b> Bird 7358 - Session 13</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#rasters"><i class="fa fa-check"></i><b>3.3</b> Rasters</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-31---session-18-2"><i class="fa fa-check"></i><b>3.3.1</b> Bird 31 - Session 18</a></li>
+<li class="chapter" data-level="3.3.2" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-19-2"><i class="fa fa-check"></i><b>3.3.2</b> Bird 174 - Session 19</a></li>
+<li class="chapter" data-level="3.3.3" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-20-2"><i class="fa fa-check"></i><b>3.3.3</b> Bird 174 - Session 20</a></li>
+<li class="chapter" data-level="3.3.4" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-174---session-21-2"><i class="fa fa-check"></i><b>3.3.4</b> Bird 174 - Session 21</a></li>
+<li class="chapter" data-level="3.3.5" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-7-2"><i class="fa fa-check"></i><b>3.3.5</b> Bird 6821 - Session 7</a></li>
+<li class="chapter" data-level="3.3.6" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-1-2"><i class="fa fa-check"></i><b>3.3.6</b> Bird 6821 - Session 1</a></li>
+<li class="chapter" data-level="3.3.7" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-10-2"><i class="fa fa-check"></i><b>3.3.7</b> Bird 6821 - Session 10</a></li>
+<li class="chapter" data-level="3.3.8" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6821---session-16-2"><i class="fa fa-check"></i><b>3.3.8</b> Bird 6821 - Session 16</a></li>
+<li class="chapter" data-level="3.3.9" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-4-2"><i class="fa fa-check"></i><b>3.3.9</b> Bird 6951 - Session 4</a></li>
+<li class="chapter" data-level="3.3.10" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-8-2"><i class="fa fa-check"></i><b>3.3.10</b> Bird 6951 - Session 8</a></li>
+<li class="chapter" data-level="3.3.11" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-6951---session-6-2"><i class="fa fa-check"></i><b>3.3.11</b> Bird 6951 - Session 6</a></li>
+<li class="chapter" data-level="3.3.12" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7108---session-11-2"><i class="fa fa-check"></i><b>3.3.12</b> Bird 7108 - Session 11</a></li>
+<li class="chapter" data-level="3.3.13" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7138---session-2-2"><i class="fa fa-check"></i><b>3.3.13</b> Bird 7138 - Session 2</a></li>
+<li class="chapter" data-level="3.3.14" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7253---session-12-2"><i class="fa fa-check"></i><b>3.3.14</b> Bird 7253 - Session 12</a></li>
+<li class="chapter" data-level="3.3.15" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7312---session-5-2"><i class="fa fa-check"></i><b>3.3.15</b> Bird 7312 - Session 5</a></li>
+<li class="chapter" data-level="3.3.16" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7312---session-15-2"><i class="fa fa-check"></i><b>3.3.16</b> Bird 7312 - Session 15</a></li>
+<li class="chapter" data-level="3.3.17" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-9-2"><i class="fa fa-check"></i><b>3.3.17</b> Bird 7358 - Session 9</a></li>
+<li class="chapter" data-level="3.3.18" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-14-2"><i class="fa fa-check"></i><b>3.3.18</b> Bird 7358 - Session 14</a></li>
+<li class="chapter" data-level="3.3.19" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-17-2"><i class="fa fa-check"></i><b>3.3.19</b> Bird 7358 - Session 17</a></li>
+<li class="chapter" data-level="3.3.20" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-3-2"><i class="fa fa-check"></i><b>3.3.20</b> Bird 7358 - Session 3</a></li>
+<li class="chapter" data-level="3.3.21" data-path="syllable-locked-firing-rate.html"><a href="syllable-locked-firing-rate.html#bird-7358---session-13-2"><i class="fa fa-check"></i><b>3.3.21</b> Bird 7358 - Session 13</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="noise-correlations.html"><a href="noise-correlations.html"><i class="fa fa-check"></i><b>4</b> Noise Correlations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="noise-correlations.html"><a href="noise-correlations.html#synthetic-data"><i class="fa fa-check"></i><b>4.1</b> Synthetic Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="noise-correlations.html"><a href="noise-correlations.html#independent-neurons"><i class="fa fa-check"></i><b>4.1.1</b> Independent neurons</a></li>
+<li class="chapter" data-level="4.1.2" data-path="noise-correlations.html"><a href="noise-correlations.html#correlated-neurons"><i class="fa fa-check"></i><b>4.1.2</b> Correlated neurons</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="noise-correlations.html"><a href="noise-correlations.html#expected-spike-triggered-average"><i class="fa fa-check"></i><b>4.2</b> Expected spike-triggered average</a></li>
+<li class="chapter" data-level="4.3" data-path="noise-correlations.html"><a href="noise-correlations.html#song-adjusted-sta"><i class="fa fa-check"></i><b>4.3</b> Song-adjusted STA</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html"><i class="fa fa-check"></i><b>5</b> Spike triggered averages</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#figures-1"><i class="fa fa-check"></i><b>5.1</b> Figures</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-31---session-18-3"><i class="fa fa-check"></i><b>5.1.1</b> Bird 31 - Session 18</a></li>
+<li class="chapter" data-level="5.1.2" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-174---session-19-3"><i class="fa fa-check"></i><b>5.1.2</b> Bird 174 - Session 19</a></li>
+<li class="chapter" data-level="5.1.3" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-174---session-20-3"><i class="fa fa-check"></i><b>5.1.3</b> Bird 174 - Session 20</a></li>
+<li class="chapter" data-level="5.1.4" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-174---session-21-3"><i class="fa fa-check"></i><b>5.1.4</b> Bird 174 - Session 21</a></li>
+<li class="chapter" data-level="5.1.5" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6821---session-7-3"><i class="fa fa-check"></i><b>5.1.5</b> Bird 6821 - Session 7</a></li>
+<li class="chapter" data-level="5.1.6" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6821---session-1-3"><i class="fa fa-check"></i><b>5.1.6</b> Bird 6821 - Session 1</a></li>
+<li class="chapter" data-level="5.1.7" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6821---session-10-3"><i class="fa fa-check"></i><b>5.1.7</b> Bird 6821 - Session 10</a></li>
+<li class="chapter" data-level="5.1.8" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6821---session-16-3"><i class="fa fa-check"></i><b>5.1.8</b> Bird 6821 - Session 16</a></li>
+<li class="chapter" data-level="5.1.9" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6951---session-4-3"><i class="fa fa-check"></i><b>5.1.9</b> Bird 6951 - Session 4</a></li>
+<li class="chapter" data-level="5.1.10" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6951---session-8-3"><i class="fa fa-check"></i><b>5.1.10</b> Bird 6951 - Session 8</a></li>
+<li class="chapter" data-level="5.1.11" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-6951---session-6-3"><i class="fa fa-check"></i><b>5.1.11</b> Bird 6951 - Session 6</a></li>
+<li class="chapter" data-level="5.1.12" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7108---session-11-3"><i class="fa fa-check"></i><b>5.1.12</b> Bird 7108 - Session 11</a></li>
+<li class="chapter" data-level="5.1.13" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7138---session-2-3"><i class="fa fa-check"></i><b>5.1.13</b> Bird 7138 - Session 2</a></li>
+<li class="chapter" data-level="5.1.14" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7253---session-12-3"><i class="fa fa-check"></i><b>5.1.14</b> Bird 7253 - Session 12</a></li>
+<li class="chapter" data-level="5.1.15" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7312---session-5-3"><i class="fa fa-check"></i><b>5.1.15</b> Bird 7312 - Session 5</a></li>
+<li class="chapter" data-level="5.1.16" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7312---session-15-3"><i class="fa fa-check"></i><b>5.1.16</b> Bird 7312 - Session 15</a></li>
+<li class="chapter" data-level="5.1.17" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7358---session-9-3"><i class="fa fa-check"></i><b>5.1.17</b> Bird 7358 - Session 9</a></li>
+<li class="chapter" data-level="5.1.18" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7358---session-14-3"><i class="fa fa-check"></i><b>5.1.18</b> Bird 7358 - Session 14</a></li>
+<li class="chapter" data-level="5.1.19" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7358---session-17-3"><i class="fa fa-check"></i><b>5.1.19</b> Bird 7358 - Session 17</a></li>
+<li class="chapter" data-level="5.1.20" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7358---session-3-3"><i class="fa fa-check"></i><b>5.1.20</b> Bird 7358 - Session 3</a></li>
+<li class="chapter" data-level="5.1.21" data-path="spike-triggered-averages.html"><a href="spike-triggered-averages.html#bird-7358---session-13-3"><i class="fa fa-check"></i><b>5.1.21</b> Bird 7358 - Session 13</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html"><i class="fa fa-check"></i><b>6</b> Spike triggered averages - z-score</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#figures-2"><i class="fa fa-check"></i><b>6.1</b> Figures</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-31---session-18-4"><i class="fa fa-check"></i><b>6.1.1</b> Bird 31 - Session 18</a></li>
+<li class="chapter" data-level="6.1.2" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-174---session-19-4"><i class="fa fa-check"></i><b>6.1.2</b> Bird 174 - Session 19</a></li>
+<li class="chapter" data-level="6.1.3" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-174---session-20-4"><i class="fa fa-check"></i><b>6.1.3</b> Bird 174 - Session 20</a></li>
+<li class="chapter" data-level="6.1.4" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-174---session-21-4"><i class="fa fa-check"></i><b>6.1.4</b> Bird 174 - Session 21</a></li>
+<li class="chapter" data-level="6.1.5" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6821---session-7-4"><i class="fa fa-check"></i><b>6.1.5</b> Bird 6821 - Session 7</a></li>
+<li class="chapter" data-level="6.1.6" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6821---session-1-4"><i class="fa fa-check"></i><b>6.1.6</b> Bird 6821 - Session 1</a></li>
+<li class="chapter" data-level="6.1.7" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6821---session-10-4"><i class="fa fa-check"></i><b>6.1.7</b> Bird 6821 - Session 10</a></li>
+<li class="chapter" data-level="6.1.8" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6821---session-16-4"><i class="fa fa-check"></i><b>6.1.8</b> Bird 6821 - Session 16</a></li>
+<li class="chapter" data-level="6.1.9" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6951---session-4-4"><i class="fa fa-check"></i><b>6.1.9</b> Bird 6951 - Session 4</a></li>
+<li class="chapter" data-level="6.1.10" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6951---session-8-4"><i class="fa fa-check"></i><b>6.1.10</b> Bird 6951 - Session 8</a></li>
+<li class="chapter" data-level="6.1.11" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-6951---session-6-4"><i class="fa fa-check"></i><b>6.1.11</b> Bird 6951 - Session 6</a></li>
+<li class="chapter" data-level="6.1.12" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7108---session-11-4"><i class="fa fa-check"></i><b>6.1.12</b> Bird 7108 - Session 11</a></li>
+<li class="chapter" data-level="6.1.13" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7138---session-2-4"><i class="fa fa-check"></i><b>6.1.13</b> Bird 7138 - Session 2</a></li>
+<li class="chapter" data-level="6.1.14" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7253---session-12-4"><i class="fa fa-check"></i><b>6.1.14</b> Bird 7253 - Session 12</a></li>
+<li class="chapter" data-level="6.1.15" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7312---session-5-4"><i class="fa fa-check"></i><b>6.1.15</b> Bird 7312 - Session 5</a></li>
+<li class="chapter" data-level="6.1.16" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7312---session-15-4"><i class="fa fa-check"></i><b>6.1.16</b> Bird 7312 - Session 15</a></li>
+<li class="chapter" data-level="6.1.17" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7358---session-9-4"><i class="fa fa-check"></i><b>6.1.17</b> Bird 7358 - Session 9</a></li>
+<li class="chapter" data-level="6.1.18" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7358---session-14-4"><i class="fa fa-check"></i><b>6.1.18</b> Bird 7358 - Session 14</a></li>
+<li class="chapter" data-level="6.1.19" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7358---session-17-4"><i class="fa fa-check"></i><b>6.1.19</b> Bird 7358 - Session 17</a></li>
+<li class="chapter" data-level="6.1.20" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7358---session-3-4"><i class="fa fa-check"></i><b>6.1.20</b> Bird 7358 - Session 3</a></li>
+<li class="chapter" data-level="6.1.21" data-path="spike-triggered-averages---z-score.html"><a href="spike-triggered-averages---z-score.html#bird-7358---session-13-4"><i class="fa fa-check"></i><b>6.1.21</b> Bird 7358 - Session 13</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html"><i class="fa fa-check"></i><b>7</b> Variational Autoencoders</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#training"><i class="fa fa-check"></i><b>7.1</b> Training</a></li>
+<li class="chapter" data-level="7.2" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.2</b> Syllable Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>8</b> Syntax</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="9" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>9</b> Next Steps</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">LMAN Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="noise-correlations" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Noise Correlations<a href="noise-correlations.html#noise-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="synthetic-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Synthetic Data<a href="noise-correlations.html#synthetic-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="independent-neurons" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Independent neurons<a href="noise-correlations.html#independent-neurons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I started by simulating data to validate the method of subtracting the song component.
+First, I simulated two independent neurons which increased in firing rate at separate at separate phases of song.</p>
+<p>The lower figure shows that the firing rate over neuron 2 changes with the distance from a spike in neuron one even though their is no causal relation between these neurons.</p>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-uncorrelated-syllable"></span>
+<img src="Figures/Noise%20Correlations/noise%20-%20uncorrelated%20-%20syllable.png" alt="Firing rate as a function of time during song for two independent neurons." width="75%" />
+<p class="caption">
+Figure 4.1: Firing rate as a function of time during song for two independent neurons.
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-uncorrelated-STA"></span>
+<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA%20-%20observed.png" alt="Spike triggered average firing rate for independent two neurons during singing and silence." width="100%" />
+<p class="caption">
+Figure 4.2: Spike triggered average firing rate for independent two neurons during singing and silence.
+</p>
+</div>
+</div>
+<div id="correlated-neurons" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Correlated neurons<a href="noise-correlations.html#correlated-neurons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, I simulated data as described above, expect now neuron 2 has an increased probability of firing shortly after a spike from neuron 1.</p>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-correlated-syllable"></span>
+<img src="Figures/Noise%20Correlations/noise%20-%20correlated%20-%20syllable.png" alt="Firing rate as a function of time during song for two correlated neurons." width="75%" />
+<p class="caption">
+Figure 4.3: Firing rate as a function of time during song for two correlated neurons.
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-correlated-STA"></span>
+<img src="Figures/Noise%20Correlations/correlated%20-%20STA%20-%20observed.png" alt="Spike triggered average firing rate for correlated neurons during singing and silence." width="100%" />
+<p class="caption">
+Figure 4.4: Spike triggered average firing rate for correlated neurons during singing and silence.
+</p>
+</div>
+</div>
+</div>
+<div id="expected-spike-triggered-average" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Expected spike-triggered average<a href="noise-correlations.html#expected-spike-triggered-average" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For independent neurons with distinct time-varying song-locked firing rates, we can estimate the STA at time lag <span class="math inline">\(\tau\)</span> as <span class="math inline">\(STA(\tau) = \frac{R_i(t) \cdot R_j(t + \tau)^T}{R_i(t) \cdot R_i(t)^T}\)</span> where <span class="math inline">\(R_i(t)\)</span> is the average firing rate of neuron <em>i</em> at time <em>t</em> in song.</p>
+<p>In other words, the STA for neuron <em>i</em> and <em>j</em> at time lag <span class="math inline">\(\tau\)</span> is the average firing rate of <em>i</em> at lag <span class="math inline">\(\tau\)</span>, weighted by the probability density of <em>j</em>.</p>
+<p>The black lines in the following figures show that the expected STA matches the observed STA for independent neurons, but not correlated neurons.</p>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-expected-STA"></span>
+<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA.png" alt="Expected STA calculated for independent neurons with the givin song-modulation." width="100%" /><img src="Figures/Noise%20Correlations/correlated%20-%20STA.png" alt="Expected STA calculated for independent neurons with the givin song-modulation." width="100%" />
+<p class="caption">
+Figure 4.5: Expected STA calculated for independent neurons with the givin song-modulation.
+</p>
+</div>
+</div>
+<div id="song-adjusted-sta" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Song-adjusted STA<a href="noise-correlations.html#song-adjusted-sta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The song-adjusted STA is the expected STA subtracted from the observed STA. The STA is equal during song and silence, showing that this method works (at least on synthetic data)!</p>
+<div class="figure"><span style="display:block;" id="fig:synthetic-data-song-adjusted-STA"></span>
+<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA%20-%20Song%20adjusted.png" alt="Song-adjusted STA for independent and correlated neurons." width="100%" /><img src="Figures/Noise%20Correlations/correlated%20-%20STA%20-%20Song%20adjusted.png" alt="Song-adjusted STA for independent and correlated neurons." width="100%" />
+<p class="caption">
+Figure 4.6: Song-adjusted STA for independent and correlated neurons.
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="syllable-locked-firing-rate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="spike-triggered-averages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/MxMarx/quantitative-analysis-of-gender-in-fictional-characters/edit/master/06-Noise-Correlations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["LMAN.pdf", "LMAN.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

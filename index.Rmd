@@ -1,0 +1,113 @@
+--- 
+title: "LMAN Project"
+author: "Ruby Marx"
+date: "`r Sys.Date()`"
+description: "Computational gender studies"
+url: 'https\://github.com/MxMarx/'
+github-repo: "MxMarx/quantitative-analysis-of-gender-in-fictional-characters/settings"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [references.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+output: 
+  bookdown::gitbook:
+    css: style.css
+    split_by: "chapter"
+    split_bib: no
+    config:
+      sharing:
+        github: yes
+      toc:
+        collapse: subsection
+        scroll_highlight: true
+        before: |
+          <li><a href="./introduction.html">LMAN Project</a></li>
+          <li><a>Ruby Marx, 2023</a></li>
+      edit: https://github.com/MxMarx/quantitative-analysis-of-gender-in-fictional-characters/edit/master/%s
+      download: ["pdf", "epub"]
+  # bookdown::pdf_book:
+  #   includes:
+  #   in_header: preamble.tex
+  #   latex_engine: xelatex
+  #   citation_package: natbib
+  #   keep_tex: yes
+  # bookdown::epub_book: default
+---
+
+
+```{r eval=FALSE}
+install.packages("bookdown")
+# or the development version
+# devtools::install_github("rstudio/bookdown")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, cache=FALSE, fig.align='center')
+library(plotly)
+# if (!require("DT")) install.packages('DT')
+library(DT)
+library(kableExtra)
+
+library(htmlwidgets)
+library(slickR)
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
+# Data overview {#introduction}
+
+
+```{r summary-table, fig.cap="Summary of the recording sessions", out.width='100%'}
+library(DT)
+
+summaryData <- read.table("Data/summaryData.csv", header = T, sep = ",")
+summaryData$rowcolor <- cumsum(c(0,diff(summaryData$BirdID)) != 0) %% 2
+summaryData$dividers <- diff(c(summaryData$BirdID,0)) != 0
+
+# knitr::kable(
+#   summaryData, caption = 'Here is a nice table!',
+#   booktabs = TRUE,
+#   col.names=c("Session #","Bird ID","Days post hatch","Neurons")
+# )
+
+datatable(summaryData,
+          class = list(stripe = FALSE),
+          colnames = c("Session #","Bird ID","Days post hatch","Neurons","Syllables","Notes","rowcolor","dividers"),
+          rownames = FALSE,
+          width = '100%',
+          options = list(
+            columnDefs = list(list(visible=FALSE, targets = c("rowcolor", "dividers"))),
+            pageLength = 30)) %>%
+  formatStyle(0:ncol(summaryData), valueColumns = "rowcolor",
+              `backgroundColor` = styleEqual(c(0, 1), c("AliceBlue", "White"))) %>%
+  formatStyle(0:ncol(summaryData), valueColumns = "dividers",
+              `border-bottom` = styleEqual(1, "solid 1px"))
+
+```
+
+## ISI during song
+
+As expected, ISI is smaller during singing, indicating a higher firing rate and possibly bursting.
+
+```{R ISI, fig.cap='ISI for each bird. One line for each recorded neuron.', out.width='75%'}
+images = "Figures/ISI.png"
+knitr::include_graphics(images)
+```
+
+## Syllable Intervals
+
+For birds that produced mature song, the inter-syllable-duration is almost always greater than 50 ms.
+
+```{R Syllable-Interval, fig.cap='Time between the onset of a syllable and the start of the next. Dashed line is 50 ms.', out.width='75%'}
+images = "Figures/Syllable Interval.png"
+knitr::include_graphics(images)
+```
+
+

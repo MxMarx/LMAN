@@ -1,0 +1,143 @@
+# Variational Autoencoders
+
+## Training
+
+Variational encoders are separately trained for each bird.
+
+
+```{r vae-dimensions, out.width='100%', fig.show='hold', fig.cap='The Calinski-Harabasz Index (ratio of between-cluster to within-cluster variance) plateaus before the reconstruction loss for bird 7358.'}
+library(plotly)
+
+
+trainingLoss <- read.table("Data/trainingLoss.csv", header = T, sep = ",")
+trainingLoss <- trainingLoss[!is.na(trainingLoss$bird),]
+
+
+create_plot <- function(tbl, title, overlayingAxis){
+  p <- plot_ly() %>%
+    add_trace(data = tbl, x = ~dimensions, y = ~RL, name = "RL",
+              yaxis = 'y2', type = 'scatter', mode = 'lines+markers') %>%
+    add_trace(data = tbl,  x = ~dimensions, y = ~CalinskiHarabasz, name = "Calinski-Harabasz Index",
+              yaxis = 'y1',  type = 'scatter', mode = 'lines+markers') %>%
+    layout(showlegend = FALSE,
+           annotations = list(x=0.5, y=1.05, text=title, font=list(size=18), showarrow=F, xref='paper', yref='paper',xanchor='center'),
+           colorway=c("#0484bf", "#ff7f0e"),
+           hovermode = "x unified",
+           xaxis = list(title="Embedded dimensions", zeroline=F, showline=T, linewidth=2, linecolor='black', showgrid=F,
+                        tickvals = list(8,16,32,64,128), ticks="inside"),
+           yaxis = list(showgrid=F, showline=T, zeroline=F, tickfont=list(color = '#ff7f0e', size=11), color='#ff7f0e',
+                        title="DaviesBouldin",
+                        linewidth=2,
+                        overlaying = "n", side = "right"),
+           yaxis2 = list(showgrid=F, showline=T, zeroline=F, tickfont=list(color='#0484bf', size=11), color='#0484bf',
+                         title="Reconstruction Loss",
+                         linewidth=2,
+                         overlaying = overlayingAxis, side = "left"))
+  return(p)
+}
+
+fig1 <- create_plot(trainingLoss[trainingLoss$bird == 7358,], title="Bird 7358", overlayingAxis="y")
+fig2 <- create_plot(trainingLoss[trainingLoss$bird == 6951,], title="Bird 6951", overlayingAxis="y3")
+
+# fig1 <- plot_ly(colors = c("#ff7f0e", "#ff7f0e")) %>%
+#   add_trace(data = trainingLoss[trainingLoss$bird == 7358,], x = ~dimensions, y = ~RL, name = "RL",
+#             yaxis = 'y2', type = 'scatter', mode = 'lines+markers', marker=list(color='#0484bf')) %>%
+#   add_trace(data = trainingLoss[trainingLoss$bird == 7358,],  x = ~dimensions, y = ~CalinskiHarabasz, name = "Calinski-Harabasz Index",
+#             yaxis = 'y1',  type = 'scatter', mode = 'lines+markers',line=list(color='#ff7f0e')) %>%
+#   layout(showlegend = FALSE,
+#          hovermode = "x unified",
+#          xaxis = list(title="Embedded dimensions", showline=T, linewidth=2, linecolor='black', showgrid=F,
+#                       tickvals = list(8,16,32,64,128), ticks="inside"),
+#          yaxis = list(showgrid=F, showline=T, tickfont= list(color = '#ff7f0e', size=11), color='#ff7f0e',
+#                       title="DaviesBouldin",
+#                       linewidth=2,
+#                       overlaying = "n", side = "right"),
+#          yaxis2 = list(showgrid=F, showline=T, tickfont=list(color='#0484bf', size=11), color='#0484bf',
+#                        title="Reconstruction loss",
+#                        linewidth=2,
+#                        overlaying = "y", side = "left"))
+# 
+# fig2 <- plot_ly(colors = c("#ff7f0e", "#ff7f0e")) %>%
+#   add_trace(data = trainingLoss[trainingLoss$bird == 6951,], x = ~dimensions, y = ~RL, name = "RL",
+#             yaxis = 'y2', type = 'scatter', mode = 'lines+markers', marker=list(color='#0484bf')) %>%
+#   add_trace(data = trainingLoss[trainingLoss$bird == 6951,],  x = ~dimensions, y = ~CalinskiHarabasz, name = "Calinski-Harabasz Index",
+#             yaxis = 'y1',  type = 'scatter', mode = 'lines+markers',line=list(color='#ff7f0e')) %>%
+#   layout(showlegend = FALSE,
+#          hovermode = "x unified",
+#          xaxis = list(title="Embedded dimensions", showline=T, linewidth=2, linecolor='black', showgrid=F,
+#                       tickvals = list(8,16,32,64,128), ticks="inside"),
+#          yaxis = list(showgrid=F, showline=T, tickfont= list(color = '#ff7f0e', size=11), color='#ff7f0e',
+#                       title="DaviesBouldin",
+#                       linewidth=2,
+#                       overlaying = "n", side = "right"),
+#          yaxis2 = list(showgrid=F, showline=T, tickfont=list(color='#0484bf', size=11), color='#0484bf',
+#                        title="Reconstruction loss",
+#                        linewidth=2,
+#                        overlaying = "y3", side = "left"))
+
+
+fig <- subplot(fig1, fig2, titleY = TRUE, titleX = TRUE, margin = 0.1 )
+fig
+# fig1
+# fig1
+# DaviesBouldin
+# CalinskiHarabasz
+# silhouettesilhouette
+```
+
+Variational autoencoders
+```{r vae-reconstructions, out.width='50%', fig.show='hold', fig.cap='Input (left) and decoded (right) syllables.'}
+knitr::include_graphics('Figures/VAE/reconstructions-7358-32.png')
+```
+
+
+```{r vae-traversal, out.width='50%', fig.show='hold', fig.cap='Traversing the embedding space from the centroid of syllable "i" to each other syllable centroid.'}
+knitr::include_graphics('Figures/VAE/traversal - 7358.png')
+```
+
+## Syllable Clustering
+
+Bird 7358 (66-68 DPH) has relatively stable syllables and song syntax, while bird 6951 (59-63 DPH) has more variable syllables and syntax \@ref(fig:syntax-graphs).
+
+
+```{r vae-umap, out.width='80%', fig.show='hold', fig.cap='Syllable clusters from embedded dimensions.'}
+knitr::include_graphics('Figures/VAE/umap - 32 - bird 7358.png')
+knitr::include_graphics('Figures/VAE/umap - 32 - bird 6951.png')
+
+```
+
+```{r vae-trajectory, out.height='100%', out.width='100%', fig.cap='UMAP projection of song trajectory with neuron spikes shown as dots.'}
+library(htmlwidgets)
+library(slickR)
+cP1 <- htmlwidgets::JS("function(slick,index) {
+                            return '<a>'+(index+1)+'</a>';
+                       }")
+opts <- settings(
+  dots = TRUE,
+  customPaging = cP1,
+  speed = 0,
+  adaptiveHeight = FALSE)
+
+
+filenames = list.files(path = 'Figures/VAE/', 
+                       pattern = 'umap - spikes - Bird 7358 - Session 3', full.names = T)
+slickR(obj = filenames, height = "90%", width = "90%", padding = 0) + opts
+
+
+filenames = list.files(path = 'Figures/VAE/', 
+                       pattern = 'umap - spikes - Bird 7358 - Session 9', full.names = T)
+slickR(obj = filenames, height = "90%", width = "90%", padding = 0) + opts
+
+filenames = list.files(path = 'Figures/VAE/', 
+                       pattern = 'umap - spikes - Bird 7358 - Session 13', full.names = T)
+slickR(obj = filenames, height = "90%", width = "90%", padding = 0) + opts
+
+filenames = list.files(path = 'Figures/VAE/', 
+                       pattern = 'umap - spikes - Bird 7358 - Session 14', full.names = T)
+slickR(obj = filenames, height = "90%", width = "90%", padding = 0) + opts
+
+filenames = list.files(path = 'Figures/VAE/', 
+                       pattern = 'umap - spikes - Bird 7358 - Session 17', full.names = T)
+slickR(obj = filenames, height = "90%", width = "90%", padding = 0) + opts
+
+```
