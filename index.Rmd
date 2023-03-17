@@ -4,7 +4,7 @@ author: "Ruby Marx"
 date: "`r Sys.Date()`"
 description: "Computational gender studies"
 url: 'https\://github.com/MxMarx/'
-github-repo: "MxMarx/quantitative-analysis-of-gender-in-fictional-characters/settings"
+github-repo: "MxMarx/LMAN/settings"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib, packages.bib]
@@ -22,9 +22,9 @@ output:
         collapse: subsection
         scroll_highlight: true
         before: |
-          <li><a href="./introduction.html">LMAN Project</a></li>
+          <li><a href="./index">LMAN Project</a></li>
           <li><a>Ruby Marx, 2023</a></li>
-      edit: https://github.com/MxMarx/quantitative-analysis-of-gender-in-fictional-characters/edit/master/%s
+      edit: https://github.com/LMAN/edit/master/%s
       download: ["pdf", "epub"]
   # bookdown::pdf_book:
   #   includes:
