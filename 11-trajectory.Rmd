@@ -1,0 +1,17 @@
+# Trajectories
+
+## Method
+*   Find the point in VAE space where a neuron spikes
+*   Find neighboring syllables trajectories within a radius from the query point
+*   Measure the distance of the query trajectory from the centroid of it’s neighbors over time
+*   For the null distribution, query points from other syllables at the same time offset
+
+Not shown here, but whether or not a neuron spiked did not appear to influence a syllable’s distance to the syllable cluster centroid
+Because of this, I’m not entirely confident that my method for finding the null distribution is good enough because I wasn’t really expecting an effect
+
+
+```{r trajectories, out.width='100%', fig.show='hold', fig.cap="Divergence of the trajectory away from it's neighbors for after spiking and not spiking. Shaded areas are 95% CI"}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'divergence - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```

@@ -4,6 +4,7 @@
 
 Variational encoders are separately trained for each bird. To determine the optimal number of embedding dimensions, I calculated the Calinski-Harabasz index, or the ratio of the between-cluster variance to the within-cluster variance, using the pre-labelled clusters (fig \@ref(fig:vae-dimensions)). Bird 7358 (66-68 DPH) has relatively stable syllables and song syntax, while bird 6951 (59-63 DPH) has more variable syllables and syntax \@ref(fig:syntax-graphs). For bird 7358, little information is gained beyond 32 dimensions.
 
+
 ```{r vae-dimensions, out.width='100%', fig.show='hold', fig.cap='Reconstruction loss and Calinski-Harabasz Index.'}
 library(plotly)
 
@@ -40,21 +41,51 @@ fig2 <- create_plot(trainingLoss[trainingLoss$bird == 6951,], title="Bird 6951",
 
 fig <- subplot(fig1, fig2, titleY = TRUE, titleX = TRUE, margin = 0.1 )
 fig
+
+
 # fig1
 # fig1
 # DaviesBouldin
 # CalinskiHarabasz
 # silhouettesilhouette
+
+
+
 ```
 
+```{r vae-dimensions-loss, out.width='50%', fig.show='hold', fig.cap='F1 Score for bird 7358 and 6951.'}
+trainingLoss <- read.table("Data/trainingLoss.csv", header = T, sep = ",")
+trainingLoss <- trainingLoss[!is.na(trainingLoss$bird),]
+trainingLoss$bird = as.character(trainingLoss$bird) #convert to string
 
-Variational autoencoders
-```{r vae-reconstructions, out.width='50%', fig.show='hold', fig.cap='Input (left) and decoded (right) syllables.'}
+create_plot <- function(tbl, title, overlayingAxis){
+  p <- plot_ly() %>%
+    add_trace(data = tbl,  x = ~dimensions, y = ~f1, color = ~bird, colors = c("red", "blue"),
+              type = 'scatter', mode = 'lines+markers') %>%
+    layout(showlegend = TRUE,
+           legend=list(title=list(text='Bird')),
+           annotations = list(x=0.5, y=1.05, text=title, font=list(size=18), showarrow=F, xref='paper', yref='paper',xanchor='center'),
+           hovermode = "x unified",
+           xaxis = list(title="Embedded dimensions", zeroline=F, showline=T, linewidth=2, linecolor='black', showgrid=F,
+                        tickvals = list(8,16,32,64,128), ticks="inside"),
+           yaxis = list(showgrid=F, showline=T, zeroline=F, tickfont=list(size=11),
+                        title="F1 Score",
+                        type = "log",
+                        linewidth=2,
+                        overlaying = "n", side = "left"))
+  return(p)
+}
+
+fig <- create_plot(trainingLoss, title="F1 Score", overlayingAxis="y")
+fig
+```
+
+```{r vae-reconstructions, out.width='70%', fig.show='hold', fig.cap='Input (left) and decoded (right) syllables.'}
 knitr::include_graphics('Figures/VAE/reconstructions-7358-32.png')
 ```
 
 
-```{r vae-traversal, out.width='50%', fig.show='hold', fig.cap='Traversing the embedding space from the centroid of syllable "i" to each other syllable centroid.'}
+```{r vae-traversal, out.width='70%', fig.show='hold', fig.cap='Traversing the embedding space from the centroid of syllable "i" to each other syllable centroid.'}
 knitr::include_graphics('Figures/VAE/traversal - 7358.png')
 ```
 
@@ -67,13 +98,52 @@ knitr::include_graphics('Figures/VAE/umap - 32 - bird 6951.png')
 
 ```
 
-## Bird 7358
+```{r panel-setup, include = FALSE}
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(foreground = "honeydew", background = "seagreen", active_background = 'red')
+```
 
-```{r vae-trajectory, out.height='100%', out.width='100%', fig.cap='UMAP projection of song trajectory with neuron spikes shown as dots.'}
-# Rprof()
+
+```{r fig.show = 'hide', results = 'hide'}
+# Load images 
 library(htmlwidgets)
 library(slickR)
 library(stringr)
+filenames = list.files(path = 'Figures/VAE/',
+                       pattern = 'umap - spikes - Bird (7358|6951) - Session', full.names = T)
+filenames = as.data.frame(str_match(filenames, "Figures/VAE/umap - spikes - Bird (\\d+) - Session (\\d+) - Unit (\\d+).png"))
+colnames(filenames) = c("filename","bird", "session","neuron")
+dir.create('docs/')
+dir.create('docs/Figures/')
+dir.create('docs/Figures/VAE/')
+
+file.copy(filenames$filename, "docs/Figures/VAE")
+
+```
+
+## Bird 7358
+
+
+```{r vae-trajectory-7358, out.height='100%', out.width='100%', cache=FALSE, fig.cap='UMAP projection of song trajectory with neuron spikes shown as dots.', results = 'asis'}
+# library(stringr)
+# filenames = list.files(path = 'Figures/VAE/', 
+#                        pattern = 'umap - spikes - Bird 7358 - Session', full.names = T)
+# filenames = as.data.frame(str_match(filenames, "Figures/VAE/umap - spikes - Bird (\\d+) - Session (\\d+) - Unit (\\d+).png"))
+# colnames(filenames) = c("filename","bird","session","neuron")
+# sets <- split(
+#   filenames,
+#   filenames$session)
+# output = sapply(sets,FUN = function(x){
+#   cat(sprintf("\n## Bird %s - Session %s {.panelset .unnumbered}\n", x$bird[1], x$session[1]))
+#   cat(sprintf("\n### Neuron %s {-}\n![](%s){width=50%%}\n", x$neuron, x$filename))
+# })
+
+
+
+library(htmlwidgets)
+library(slickR)
+library(stringr)
+
 cP1 <- htmlwidgets::JS("function(slick,index) {
                             return '<a>'+(index+1)+'</a>';
                        }")
@@ -83,26 +153,59 @@ opts <- settings(
   speed = 0,
   adaptiveHeight = FALSE)
 
+t = filenames[filenames$bird == 7358,]
 
-filenames = list.files(path = 'Figures/VAE/', 
-                       pattern = 'umap - spikes - Bird 7358 - Session', full.names = T)
-filenames = as.data.frame(str_match(filenames, "Figures/VAE/umap - spikes - Bird 7358 - Session (\\d+) - Unit (\\d+).png"))
-colnames(filenames) = c("filename","session","neuron")
-  
+imgs_bare <- lapply(t$filename, function(x){
+  htmltools::tags$img(src = x)
+})
 
 sets <- split(
-  filenames$filename,
-  filenames$session)
-
+  imgs_bare,
+  t$session)
 
 
 slicks <- lapply(sets,FUN = function(x,...){
   slickR(obj = x,...) + opts
-}, height = "90%", width = "90%", padding = 0) 
-
-
+}, height = "90%", width = "90%", padding = 0)
 Reduce(`%stack%`,slicks)
 
-# Rprof(NULL)
-# summaryRprof()
+
 ```
+
+## Bird 6951
+
+
+```{r vae-trajectory-6951, out.height='100%', out.width='100%', fig.cap='UMAP projection of song trajectory with neuron spikes shown as dots.'}
+
+
+library(htmlwidgets)
+library(slickR)
+library(stringr)
+
+cP1 <- htmlwidgets::JS("function(slick,index) {
+                            return '<a>'+(index+1)+'</a>';
+                       }")
+opts <- settings(
+  dots = TRUE,
+  customPaging = cP1,
+  speed = 0,
+  adaptiveHeight = FALSE)
+
+t = filenames[filenames$bird == 6951,]
+
+imgs_bare <- lapply(t$filename, function(x){
+  htmltools::tags$img(src = x)
+})
+
+sets <- split(
+  imgs_bare,
+  t$session)
+
+
+slicks <- lapply(sets,FUN = function(x,...){
+  slickR(obj = x,...) + opts
+}, height = "90%", width = "90%", padding = 0)
+Reduce(`%stack%`,slicks)
+
+```
+

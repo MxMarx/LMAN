@@ -8,12 +8,15 @@ fig:synthetic-data-correlated-STA
 fig:synthetic-data-expected-STA
 fig:synthetic-data-song-adjusted-STA
 fig:vae-dimensions
+fig:vae-dimensions-loss
 fig:vae-reconstructions
 fig:vae-traversal
 fig:vae-umap
-fig:vae-trajectory
+fig:vae-trajectory-7358
+fig:vae-trajectory-6951
 fig:syntax-graphs
 fig:syntax-tables
+fig:trajectories
 introduction
 isi-during-song
 syllable-intervals
@@ -143,5 +146,8 @@ variational-autoencoders
 training
 syllable-clustering
 bird-7358
+bird-6951
 syntax
+trajectories
+method
 next-steps

@@ -4,6 +4,17 @@
 knitr::include_graphics(c('Figures/Syntax/graph - bird 7358.png', 'Figures/Syntax/graph - bird 6951.png'))
 ```
 
+```{r fig.show = 'hide', results = 'hide'}
+# Load images 
+filenames = list.files(path = 'Figures/Syntax/', 
+                    pattern = 'transition table - bird', full.names = T)
+dir.create('docs/')
+dir.create('docs/Figures/')
+dir.create('docs/Figures/Syntax/')
+file.copy(filenames, "docs/Figures/Syntax/")
+
+```
+
 ```{r syntax-tables, out.height='100%', out.width='100%', fig.cap='Transition Tables'}
 library(htmlwidgets)
 library(slickR)
@@ -23,16 +34,13 @@ opts <- settings(
   adaptiveHeight = FALSE)
 
 
-filenames = list.files(path = 'Figures/Syntax/', 
-                    pattern = 'transition table - bird', full.names = T)
+
+imgs_bare <- lapply(filenames, function(x){
+  htmltools::tags$img(src = x)
+})
+
+slickR(obj = imgs_bare, height = "70%", width = "70%", padding = 0) + opts
 
 
-slickR(obj = filenames, height = "70%", width = "70%", padding = 0) + opts
-
-# matches <- regmatches(filenames, gregexpr("[[:digit:]]+", filenames))
-# s2 <- htmltools::tags$script(
-#   sprintf("var dotObj = %s",  jsonlite::toJSON(as.numeric(unlist(matches))))
-# )
-# htmltools::browsable(htmltools::tagList(s2, slick))
 
 ```
