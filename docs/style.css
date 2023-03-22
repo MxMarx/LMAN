@@ -17,5 +17,9 @@ pre code {
 }
 
 .panelset .panel-active {
-    display: block !important;
+  display: block !important;
+}
+
+.panelset .panel-tabs .panel-tab {
+  margin-bottom: 0px;
 }

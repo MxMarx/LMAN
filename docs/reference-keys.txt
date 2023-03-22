@@ -8,7 +8,6 @@ fig:synthetic-data-correlated-STA
 fig:synthetic-data-expected-STA
 fig:synthetic-data-song-adjusted-STA
 fig:vae-dimensions
-fig:vae-dimensions-loss
 fig:vae-reconstructions
 fig:vae-traversal
 fig:vae-umap
@@ -144,10 +143,11 @@ bird-7358---session-3-4
 bird-7358---session-13-4
 variational-autoencoders
 training
+accuracy
+spectrogram-reconstructions
 syllable-clustering
 bird-7358
 bird-6951
 syntax
 trajectories
 method
-next-steps

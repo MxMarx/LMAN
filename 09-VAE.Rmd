@@ -1,3 +1,8 @@
+```{r panel-setup, include = FALSE}
+xaringanExtra::use_panelset()
+xaringanExtra::style_panelset_tabs(foreground = "honeydew", background = "seagreen", active_background = 'red')
+```
+
 # Variational Autoencoders
 
 ## Training
@@ -11,6 +16,7 @@ library(plotly)
 
 trainingLoss <- read.table("Data/trainingLoss.csv", header = T, sep = ",")
 trainingLoss <- trainingLoss[!is.na(trainingLoss$bird),]
+trainingLoss$bird = as.character(trainingLoss$bird) #convert to string
 
 
 create_plot <- function(tbl, title, overlayingAxis){
@@ -53,14 +59,14 @@ fig
 
 ```
 
-```{r vae-dimensions-loss, out.width='50%', fig.show='hold', fig.cap='F1 Score for bird 7358 and 6951.'}
-trainingLoss <- read.table("Data/trainingLoss.csv", header = T, sep = ",")
-trainingLoss <- trainingLoss[!is.na(trainingLoss$bird),]
-trainingLoss$bird = as.character(trainingLoss$bird) #convert to string
+## Accuracy {.panelset}
 
-create_plot <- function(tbl, title, overlayingAxis){
+```{r}
+library(plotly)
+
+create_plot <- function(tbl, y, title, overlayingAxis){
   p <- plot_ly() %>%
-    add_trace(data = tbl,  x = ~dimensions, y = ~f1, color = ~bird, colors = c("red", "blue"),
+    add_trace(data = tbl,  x = ~dimensions, y = y, color = ~bird, colors = c("red", "blue"),
               type = 'scatter', mode = 'lines+markers') %>%
     layout(showlegend = TRUE,
            legend=list(title=list(text='Bird')),
@@ -69,17 +75,31 @@ create_plot <- function(tbl, title, overlayingAxis){
            xaxis = list(title="Embedded dimensions", zeroline=F, showline=T, linewidth=2, linecolor='black', showgrid=F,
                         tickvals = list(8,16,32,64,128), ticks="inside"),
            yaxis = list(showgrid=F, showline=T, zeroline=F, tickfont=list(size=11),
-                        title="F1 Score",
+                        title=title,
                         type = "log",
                         linewidth=2,
                         overlaying = "n", side = "left"))
   return(p)
 }
-
-fig <- create_plot(trainingLoss, title="F1 Score", overlayingAxis="y")
-fig
 ```
 
+### F1 Score {.unnumbered}
+```{r vae-dimensions-f1, out.width='50%'}
+create_plot(trainingLoss, y=~f1, title="F1 Score", overlayingAxis="y")
+```
+
+### Hopkins statistic {.unnumbered}
+```{r vae-dimensions-hopkins, out.width='50%'}
+create_plot(trainingLoss, y=~hopkins, title="Hopkins statistic", overlayingAxis="y")
+```
+
+### Clustering Coefficient {.unnumbered}
+```{r vae-dimensions-clusteringCoefMean, out.width='50%'}
+create_plot(trainingLoss, y=~clusteringCoefMean, title="Clustering Coefficient", overlayingAxis="y")
+```
+
+
+## Spectrogram Reconstructions
 ```{r vae-reconstructions, out.width='70%', fig.show='hold', fig.cap='Input (left) and decoded (right) syllables.'}
 knitr::include_graphics('Figures/VAE/reconstructions-7358-32.png')
 ```
@@ -96,11 +116,6 @@ knitr::include_graphics('Figures/VAE/traversal - 7358.png')
 knitr::include_graphics('Figures/VAE/umap - 32 - bird 7358.png')
 knitr::include_graphics('Figures/VAE/umap - 32 - bird 6951.png')
 
-```
-
-```{r panel-setup, include = FALSE}
-xaringanExtra::use_panelset()
-xaringanExtra::style_panelset_tabs(foreground = "honeydew", background = "seagreen", active_background = 'red')
 ```
 
 
@@ -137,8 +152,6 @@ file.copy(filenames$filename, "docs/Figures/VAE")
 #   cat(sprintf("\n## Bird %s - Session %s {.panelset .unnumbered}\n", x$bird[1], x$session[1]))
 #   cat(sprintf("\n### Neuron %s {-}\n![](%s){width=50%%}\n", x$neuron, x$filename))
 # })
-
-
 
 library(htmlwidgets)
 library(slickR)

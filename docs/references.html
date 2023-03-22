@@ -23,7 +23,7 @@
 <meta name="author" content="Ruby Marx" />
 
 
-<meta name="date" content="2023-03-21" />
+<meta name="date" content="2023-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="trajectories.html"/>
-<link rel="next" href="next-steps.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -60,12 +60,12 @@
 <script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="libs/panelset-0.2.6/panelset.js"></script>
 <script src="libs/plotly-binding-4.10.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
-<script src="libs/panelset-0.2.6/panelset.js"></script>
 <script src="libs/jquery-migrate-3.1.0/jquery-migrate-3.1.0.min.js"></script>
 <link href="libs/slick-1.8.1/slick/slick.css" rel="stylesheet" />
 <link href="libs/slick-1.8.1/slick/slick-theme.css" rel="stylesheet" />
@@ -156,6 +156,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="./index">LMAN Project</a></li>
+<li><a>Ruby Marx, 2023</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data overview</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#isi-during-song"><i class="fa fa-check"></i><b>1.1</b> ISI during song</a></li>
@@ -308,9 +312,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html"><i class="fa fa-check"></i><b>7</b> Variational Autoencoders</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#training"><i class="fa fa-check"></i><b>7.1</b> Training</a></li>
-<li class="chapter" data-level="7.2" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.2</b> Syllable Clustering</a></li>
-<li class="chapter" data-level="7.3" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.3</b> Bird 7358</a></li>
-<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.4</b> Bird 6951</a></li>
+<li class="chapter" data-level="7.2" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#accuracy"><i class="fa fa-check"></i><b>7.2</b> Accuracy</a>
+<ul>
+<li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#f1-score"><i class="fa fa-check"></i>F1 Score</a></li>
+<li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#hopkins-statistic"><i class="fa fa-check"></i>Hopkins statistic</a></li>
+<li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#clustering-coefficient"><i class="fa fa-check"></i>Clustering Coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#spectrogram-reconstructions"><i class="fa fa-check"></i><b>7.3</b> Spectrogram Reconstructions</a></li>
+<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.4</b> Syllable Clustering</a></li>
+<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.5</b> Bird 7358</a></li>
+<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.6</b> Bird 6951</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>8</b> Syntax</a></li>
 <li class="chapter" data-level="9" data-path="trajectories.html"><a href="trajectories.html"><i class="fa fa-check"></i><b>9</b> Trajectories</a>
@@ -318,7 +329,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1" data-path="trajectories.html"><a href="trajectories.html#method"><i class="fa fa-check"></i><b>9.1</b> Method</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="10" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>10</b> Next Steps</a></li>
 </ul>
 
       </nav>
@@ -345,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="trajectories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="next-steps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trajectories.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -361,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -377,8 +387,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/LMAN/edit/master/99-references.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -388,13 +398,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["LMAN.pdf", "LMAN.epub"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });
