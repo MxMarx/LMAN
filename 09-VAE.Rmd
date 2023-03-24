@@ -1,8 +1,3 @@
-```{r panel-setup, include = FALSE}
-xaringanExtra::use_panelset()
-xaringanExtra::style_panelset_tabs(foreground = "honeydew", background = "seagreen", active_background = 'red')
-```
-
 # Variational Autoencoders
 
 ## Training

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Noise Correlations | LMAN Project</title>
+  <title>10 Centrality | LMAN Project</title>
   <meta name="description" content="Computational gender studies" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Noise Correlations | LMAN Project" />
+  <meta property="og:title" content="10 Centrality | LMAN Project" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Computational gender studies" />
   <meta name="github-repo" content="MxMarx/LMAN/settings" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Noise Correlations | LMAN Project" />
+  <meta name="twitter:title" content="10 Centrality | LMAN Project" />
   
   <meta name="twitter:description" content="Computational gender studies" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="syllable-locked-firing-rate.html"/>
-<link rel="next" href="spike-triggered-averages.html"/>
+<link rel="prev" href="trajectories.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -356,67 +356,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="noise-correlations" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> Noise Correlations<a href="noise-correlations.html#noise-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="synthetic-data" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Synthetic Data<a href="noise-correlations.html#synthetic-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="independent-neurons" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Independent neurons<a href="noise-correlations.html#independent-neurons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>I started by simulating data to validate the method of subtracting the song component.
-First, I simulated two independent neurons which increased in firing rate at separate at separate phases of song.</p>
-<p>The lower figure shows that the firing rate over neuron 2 changes with the distance from a spike in neuron one even though their is no causal relation between these neurons.</p>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-uncorrelated-syllable"></span>
-<img src="Figures/Noise%20Correlations/noise%20-%20uncorrelated%20-%20syllable.png" alt="Firing rate as a function of time during song for two independent neurons." width="75%" />
-<p class="caption">
-Figure 4.1: Firing rate as a function of time during song for two independent neurons.
-</p>
+<div id="centrality" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">10</span> Centrality<a href="centrality.html#centrality" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="plots" class="section level2 panelset hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Plots<a href="centrality.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="distance-from-centroid" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Distance from centroid<a href="centrality.html#distance-from-centroid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Syllable%20distance/violin%20-%20Distance%20from%20centroid%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Distance%20from%20centroid%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Distance%20from%20centroid%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Distance%20from%20centroid%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Distance%20from%20centroid%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-uncorrelated-STA"></span>
-<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA%20-%20observed.png" alt="Spike triggered average firing rate for independent two neurons during singing and silence." width="100%" />
-<p class="caption">
-Figure 4.2: Spike triggered average firing rate for independent two neurons during singing and silence.
-</p>
+<div id="centrality-1" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Centrality<a href="centrality.html#centrality-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display" id="eq:Centrality">\[\begin{equation}
+\LARGE
+  \begin{array}{l}
+    C_i =\sum\limits_j w_{ij} \\
+    \tag{10.1}
+  \end{array}
+\end{equation}\]</span></p>
+<p><img src="Figures/Syllable%20distance/violin%20-%20Centrality%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Centrality%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Centrality%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Centrality%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Centrality%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
+<div id="clustering-coefficient-1" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Clustering Coefficient<a href="centrality.html#clustering-coefficient-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display" id="eq:Clustering">\[\begin{equation}
+\LARGE
+  \begin{array}{l}
+    K_i =\sum\limits_j w_{ij} \\
+    C_i=\frac{\sum_{k,j} (w_{ik}w_{ij}w_{kj})^\frac{1}{3}}{K_i(K_i-1)} = \frac{\mathrm{diag}((w^\frac{1}{3})^3)}{K_i(K_i-1)}
+    \tag{10.2}
+  \end{array}
+\end{equation}\]</span></p>
+<p><img src="Figures/Syllable%20distance/violin%20-%20Clustering%20Coefficient%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Clustering%20Coefficient%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Clustering%20Coefficient%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Clustering%20Coefficient%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Clustering%20Coefficient%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="correlated-neurons" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Correlated neurons<a href="noise-correlations.html#correlated-neurons" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Next, I simulated data as described above, expect now neuron 2 has an increased probability of firing shortly after a spike from neuron 1.</p>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-correlated-syllable"></span>
-<img src="Figures/Noise%20Correlations/noise%20-%20correlated%20-%20syllable.png" alt="Firing rate as a function of time during song for two correlated neurons." width="75%" />
-<p class="caption">
-Figure 4.3: Firing rate as a function of time during song for two correlated neurons.
-</p>
-</div>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-correlated-STA"></span>
-<img src="Figures/Noise%20Correlations/correlated%20-%20STA%20-%20observed.png" alt="Spike triggered average firing rate for correlated neurons during singing and silence." width="100%" />
-<p class="caption">
-Figure 4.4: Spike triggered average firing rate for correlated neurons during singing and silence.
-</p>
-</div>
-</div>
-</div>
-<div id="expected-spike-triggered-average" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Expected spike-triggered average<a href="noise-correlations.html#expected-spike-triggered-average" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For independent neurons with distinct time-varying song-locked firing rates, we can estimate the STA at time lag <span class="math inline">\(\tau\)</span> as <span class="math inline">\(STA(\tau) = \frac{R_i(t) \cdot R_j(t + \tau)^T}{R_i(t) \cdot R_i(t)^T}\)</span> where <span class="math inline">\(R_i(t)\)</span> is the average firing rate of neuron <em>i</em> at time <em>t</em> in song.</p>
-<p>In other words, the STA for neuron <em>i</em> and <em>j</em> at time lag <span class="math inline">\(\tau\)</span> is the average firing rate of <em>i</em> at lag <span class="math inline">\(\tau\)</span>, weighted by the probability density of <em>j</em>.</p>
-<p>The black lines in the following figures show that the expected STA matches the observed STA for independent neurons, but not correlated neurons.</p>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-expected-STA"></span>
-<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA.png" alt="Expected STA calculated for independent neurons with the givin song-modulation." width="100%" /><img src="Figures/Noise%20Correlations/correlated%20-%20STA.png" alt="Expected STA calculated for independent neurons with the givin song-modulation." width="100%" />
-<p class="caption">
-Figure 4.5: Expected STA calculated for independent neurons with the givin song-modulation.
-</p>
-</div>
-</div>
-<div id="song-adjusted-sta" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Song-adjusted STA<a href="noise-correlations.html#song-adjusted-sta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The song-adjusted STA is the expected STA subtracted from the observed STA. The STA is equal during song and silence, showing that this method works (at least on synthetic data)!</p>
-<div class="figure"><span style="display:block;" id="fig:synthetic-data-song-adjusted-STA"></span>
-<img src="Figures/Noise%20Correlations/uncorrelated%20-%20STA%20-%20Song%20adjusted.png" alt="Song-adjusted STA for independent and correlated neurons." width="100%" /><img src="Figures/Noise%20Correlations/correlated%20-%20STA%20-%20Song%20adjusted.png" alt="Song-adjusted STA for independent and correlated neurons." width="100%" />
-<p class="caption">
-Figure 4.6: Song-adjusted STA for independent and correlated neurons.
-</p>
-</div>
+<div id="pagerank" class="section level3 hasAnchor" number="10.1.4">
+<h3><span class="header-section-number">10.1.4</span> Pagerank<a href="centrality.html#pagerank" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Syllable%20distance/violin%20-%20Pagerank%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Pagerank%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Pagerank%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Pagerank%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20Pagerank%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -424,8 +399,8 @@ Figure 4.6: Song-adjusted STA for independent and correlated neurons.
           </div>
         </div>
       </div>
-<a href="syllable-locked-firing-rate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="spike-triggered-averages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trajectories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -456,7 +431,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/LMAN/edit/master/06-Noise-Correlations.Rmd",
+"link": "https://github.com/LMAN/edit/master/12-Centrality.Rmd",
 "text": "Edit"
 },
 "history": {

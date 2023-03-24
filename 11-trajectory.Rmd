@@ -6,7 +6,7 @@
 *   Measure the distance of the query trajectory from the centroid of it’s neighbors over time
 *   For the null distribution, query points from other syllables at the same time offset
 
-Not shown here, but whether or not a neuron spiked did not appear to influence a syllable’s distance to the syllable cluster centroid
+Shown in section \@ref(centrality), a neuron spiking did not appear to influence a syllable’s distance to the syllable cluster centroid.
 Because of this, I’m not entirely confident that my method for finding the null distribution is good enough because I wasn’t really expecting an effect
 
 

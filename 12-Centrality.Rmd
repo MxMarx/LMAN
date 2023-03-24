@@ -1,0 +1,52 @@
+# Centrality
+
+## Plots {.panelset}
+
+### Distance from centroid
+```{r centrality-7358-distance, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Distance from centroid - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Centrality
+
+\begin{equation}
+\LARGE
+  \begin{array}{l}
+    C_i =\sum\limits_j w_{ij} \\
+    (\#eq:Centrality)
+  \end{array}
+\end{equation}
+
+```{r centrality-7358-Centrality, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Centrality - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Clustering Coefficient
+
+\begin{equation}
+\LARGE
+  \begin{array}{l}
+    K_i =\sum\limits_j w_{ij} \\
+    C_i=\frac{\sum_{k,j} (w_{ik}w_{ij}w_{kj})^\frac{1}{3}}{K_i(K_i-1)} = \frac{\mathrm{diag}((w^\frac{1}{3})^3)}{K_i(K_i-1)}
+    (\#eq:Clustering)
+  \end{array}
+\end{equation}
+
+```{r centrality-7358-Clustering-Coefficient, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Clustering Coefficient - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Pagerank
+```{r centrality-7358-Pagerank, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Pagerank - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+

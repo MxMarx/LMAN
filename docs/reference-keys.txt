@@ -16,6 +16,8 @@ fig:vae-trajectory-6951
 fig:syntax-graphs
 fig:syntax-tables
 fig:trajectories
+eq:Centrality
+eq:Clustering
 introduction
 isi-during-song
 syllable-intervals
@@ -151,3 +153,9 @@ bird-6951
 syntax
 trajectories
 method
+centrality
+plots
+distance-from-centroid
+centrality-1
+clustering-coefficient-1
+pagerank
