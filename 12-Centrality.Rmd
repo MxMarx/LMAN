@@ -1,8 +1,11 @@
 # Centrality
 
-## Plots {.panelset}
+## Bird 7358 {.panelset}
 
 ### Distance from centroid
+
+Euclidean distance for each syllable to the centroid of it's cluster in embedded space.
+
 ```{r centrality-7358-distance, out.width='100%'}
 filenames = list.files(path = 'Figures/Syllable distance/', 
                     pattern = 'violin - Distance from centroid - Bird 7358', full.names = T)
@@ -11,10 +14,12 @@ knitr::include_graphics(filenames)
 
 ### Centrality
 
+Centrality $C$ is the sum of the inverse Euclidean distances $d$ of the embedded dimensions $u$.
+
 \begin{equation}
 \LARGE
   \begin{array}{l}
-    C_i =\sum\limits_j w_{ij} \\
+    C_i =\sum\limits_{j=1}^n \frac{1}{d(u_i,u_j)} \\
     (\#eq:Centrality)
   \end{array}
 \end{equation}
@@ -46,6 +51,37 @@ knitr::include_graphics(filenames)
 ```{r centrality-7358-Pagerank, out.width='100%'}
 filenames = list.files(path = 'Figures/Syllable distance/', 
                     pattern = 'violin - Pagerank - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+
+
+## Bird 6951 {.panelset}
+### Distance from centroid
+```{r centrality-6951-distance, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Distance from centroid - Bird 6951', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Centrality
+```{r centrality-6951-Centrality, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Centrality - Bird 6951', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Clustering Coefficient
+```{r centrality-6951-Clustering-Coefficient, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Clustering Coefficient - Bird 6951', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### Pagerank
+```{r centrality-6951-Pagerank, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - Pagerank - Bird 6951', full.names = T)
 knitr::include_graphics(filenames)
 ```
 

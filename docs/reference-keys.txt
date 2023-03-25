@@ -154,8 +154,13 @@ syntax
 trajectories
 method
 centrality
-plots
+bird-7358-1
 distance-from-centroid
 centrality-1
 clustering-coefficient-1
 pagerank
+bird-6951-1
+distance-from-centroid-1
+centrality-2
+clustering-coefficient-2
+pagerank-1
