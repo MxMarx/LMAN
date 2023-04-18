@@ -1,0 +1,34 @@
+# Tuning Curves
+
+## Bird 7358 {.panelset}
+
+### PCA
+
+```{r tuning-7358-pca, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - pca - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA-1
+
+```{r tuning-7358-pca1, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - pca1 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA-2
+```{r tuning-7358-pca2, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - pca2 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA-3
+
+```{r tuning-7358-pca3, out.width='100%'}
+filenames = list.files(path = 'Figures/Syllable distance/', 
+                    pattern = 'violin - pca3 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```

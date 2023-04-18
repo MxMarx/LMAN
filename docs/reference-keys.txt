@@ -164,3 +164,9 @@ distance-from-centroid-1
 centrality-2
 clustering-coefficient-2
 pagerank-1
+tuning-curves
+bird-7358-2
+pca
+pca-1
+pca-2
+pca-3
