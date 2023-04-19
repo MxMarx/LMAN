@@ -11,7 +11,7 @@ Shaded areas are 95% confidence interval.
 ```{r tuning-7358-pca1, out.width='100%'}
 
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - unstretched - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - mean - unstretched - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
@@ -21,7 +21,7 @@ PCA is calculated across the entire song.
 
 ```{r tuning-7358-pca2, out.width='100%'}
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - unstretched - pca_all - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - mean - unstretched - pca_all - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
@@ -33,7 +33,7 @@ Syllables are stretched to equal duration.
 
 ```{r tuning-7358-pca3, out.width='100%'}
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - stretched - pca_all - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - mean - stretched - pca_all - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
