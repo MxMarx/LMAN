@@ -4,31 +4,43 @@
 
 ### PCA
 
+PCA is calculated independently for each 20 ms time bin.
+
+Shaded areas are 95% confidence interval.
+
+```{r tuning-7358-pca1, out.width='100%'}
+
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - unstretched - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA (over song)
+
+PCA is calculated across the entire song.
+
+```{r tuning-7358-pca2, out.width='100%'}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - unstretched - pca_all - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA (over song - time stretched)
+
+PCA is calculated across the entire song.
+
+Syllables are stretched to equal duration.
+
+```{r tuning-7358-pca3, out.width='100%'}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - stretched - pca_all - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA (syllable averaged)
+
 ```{r tuning-7358-pca, out.width='100%'}
 filenames = list.files(path = 'Figures/Syllable distance/', 
                     pattern = 'violin - pca - Bird 7358', full.names = T)
-knitr::include_graphics(filenames)
-```
-
-### PCA-1
-
-```{r tuning-7358-pca1, out.width='100%'}
-filenames = list.files(path = 'Figures/Syllable distance/', 
-                    pattern = 'violin - pca1 - Bird 7358', full.names = T)
-knitr::include_graphics(filenames)
-```
-
-### PCA-2
-```{r tuning-7358-pca2, out.width='100%'}
-filenames = list.files(path = 'Figures/Syllable distance/', 
-                    pattern = 'violin - pca2 - Bird 7358', full.names = T)
-knitr::include_graphics(filenames)
-```
-
-### PCA-3
-
-```{r tuning-7358-pca3, out.width='100%'}
-filenames = list.files(path = 'Figures/Syllable distance/', 
-                    pattern = 'violin - pca3 - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
