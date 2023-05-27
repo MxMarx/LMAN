@@ -12,7 +12,7 @@ First, these methods are applied to individual syllables, and then a-b-c motifs.
 
 Principle components are calculated from the VAE dimensions independently at each point in time for each syllable, using a $\sigma=20\text{ ms}$ weighted kernel.
 
-One consideration regarding PCA is that if there is any imprecision in syllable onset time or syllable duration, the first PC will probably end up lining up with the time dimension. One way to account for this is to rotate the PC axes and measure the axis orthogonal to time.
+One consideration regarding PCA is that if there is any imprecision in syllable onset time or syllable duration, the first PC will probably end up lining up with the time dimension. One way to account for this is to rotate the PC axes to align with time and measuring the axis orthogonal to time.
 
 ### F-statistic
 
@@ -31,7 +31,7 @@ $$
 
 ### Considerations
 
-A 10 ms latency between LMAN and RA [@troyer_associational_2000] and ~15 ms between RA and acoustic change [@fee_neural_2004] produces a minimum of 25 ms between LMAN spikes and acoustic changes. One weakness with the shotgun VAE approach is that the latent dimensions encode the full 100ms window, so it might not be temporally precise enough for everything. As an alternative, I've experimented with using the state values from sequence-to-sequence recurrent autoencoders. The disadvantage of these models is that including a variational component in the hidden state might not be possible, although using a variational model isn't strictly necessary. A possible advantage of VAE's temporal imprecision is that any effect will be within the VAE window, and we do not need to take latency into account to observe overal impact on song.
+A 10 ms latency between LMAN and RA [@troyer_associational_2000] and ~15 ms between RA and acoustic change [@fee_neural_2004] produces a minimum of 25 ms between LMAN spikes and acoustic changes. One weakness with the shotgun VAE approach is that the latent dimensions encode the full 100ms window, so it might not be temporally precise enough for everything. As an alternative, I've experimented with using the hidden state from sequence-to-sequence recurrent autoencoders to extract latent dimensions. The disadvantage of these models is that including a variational component in the hidden state might not be possible, although using a variational model isn't strictly necessary. A possible advantage of VAE's temporal imprecision is that any effect will be within the VAE window, and we do not need to take latency into account to observe overall impact on song.
 
 
 ## Bird 7358 {.panelset}
@@ -101,7 +101,7 @@ dir.create('docs/')
 dir.create('docs/Figures/')
 dir.create('docs/Figures/Trajectories/')
 
-file.copy(filenames$filename, "docs/Figures/Trajectories")
+invisible(file.copy(filenames$filename, "docs/Figures/Trajectories"))
 
 
 cP1 <- htmlwidgets::JS("function(slick,index) {
