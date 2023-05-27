@@ -104,6 +104,11 @@ knitr::include_graphics('Figures/VAE/reconstructions-7358-32.png')
 knitr::include_graphics('Figures/VAE/traversal - 7358.png')
 ```
 
+## Limitations of VAE
+
+The 'shotgun-VAE' approach provides a continuous readout of the latent dimensions throughout song, but as a convolutional autoencoder, the latent dimensions encode the full 100ms time window. As an LSTM autoencoder could be used as an alternative, although the latent dimensions might be less interpretable without a variational constraint and it's not immediately clear to me how to add a variational component to a recurrent network.
+
+
 ## Syllable Clustering
 
 

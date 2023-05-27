@@ -1,46 +1,135 @@
 # Tuning Curves
 
-## Bird 7358 {.panelset}
+
+
+## Methods
+
+To examine the influence of LMAN activity on acoustic features, I compared VAE space at each point in time by using PCA and by measuring the overlap between latent dimensions distribution with and without a spike. In these analyses, each time point in each rendition is categorized as containing an LMAN spike if a spike occurred within 20 ms.
+
+First, these methods are applied to individual syllables, and then a-b-c motifs.
 
 ### PCA
 
-PCA is calculated independently for each 20 ms time bin.
+Principle components are calculated from the VAE dimensions independently at each point in time for each syllable, using a $\sigma=20\text{ ms}$ weighted kernel.
 
-Shaded areas are 95% confidence interval.
+One consideration regarding PCA is that if there is any imprecision in syllable onset time or syllable duration, the first PC will probably end up lining up with the time dimension. One way to account for this is to rotate the PC axes and measure the axis orthogonal to time.
 
+### F-statistic
+
+To determine the separation between traces with and without a spike in LMAN, I used a slightly modified F-statistic (might be the equivalent of Hotelling's T-squared?). The latent VAE dimensions are reasonably normally distributed, so using the variability of the euclidean distances should be valid, which can be used to calculate p-values at each point in time.
+
+$$
+\text{between-group variability} = \sum_{i=1}^{K} n_i\|\bar{Y}_{i\cdot} - \bar{Y}\|_2
+$$
+$$
+\text{within-group variability} = \sum_{i=1}^{K} \sum_{j=1}^{n_i} \|Y_{ij} - \bar{Y}_i\|_2
+$$
+
+$$
+F = \frac{\text{between-group variability}}{\text{within-group variability}} \times \frac{N-k}{k-1}
+$$
+
+### Considerations
+
+A 10 ms latency between LMAN and RA [@troyer_associational_2000] and ~15 ms between RA and acoustic change [@fee_neural_2004] produces a minimum of 25 ms between LMAN spikes and acoustic changes. One weakness with the shotgun VAE approach is that the latent dimensions encode the full 100ms window, so it might not be temporally precise enough for everything. As an alternative, I've experimented with using the state values from sequence-to-sequence recurrent autoencoders. The disadvantage of these models is that including a variational component in the hidden state might not be possible, although using a variational model isn't strictly necessary. A possible advantage of VAE's temporal imprecision is that any effect will be within the VAE window, and we do not need to take latency into account to observe overal impact on song.
+
+
+## Bird 7358 {.panelset}
+
+
+### PCA - Motif
+```{r tuning-7358-pca_bout, out.width='100%'}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - pca_bout - 16 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+
+### F-stat - Motif
+```{r tuning-7358-fstat_bout , out.width='100%'}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - fstat_bout - 16 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+
+### P-value - Motif
+
+```{r tuning-7358-regression_bout, out.width='100%'}
+filenames = list.files(path = 'Figures/Trajectories/', 
+                    pattern = 'tuning-curve - regression_bout - 16 - Bird 7358', full.names = T)
+knitr::include_graphics(filenames)
+```
+
+### PCA
 ```{r tuning-7358-pca1, out.width='100%'}
 
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - mean - unstretched - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - PCA 1 - 16 - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
-### PCA (over song)
-
-PCA is calculated across the entire song.
-
-```{r tuning-7358-pca2, out.width='100%'}
+### F-stat
+```{r tuning-7358-F-stat, out.width='100%'}
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - mean - unstretched - pca_all - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - F-stat - 16 - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
-### PCA (over song - time stretched)
-
-PCA is calculated across the entire song.
-
-Syllables are stretched to equal duration.
-
-```{r tuning-7358-pca3, out.width='100%'}
+### P-value
+```{r tuning-7358-p-value, out.width='100%'}
 filenames = list.files(path = 'Figures/Trajectories/', 
-                    pattern = 'tuning-curve - mean - stretched - pca_all - Bird 7358', full.names = T)
+                    pattern = 'tuning-curve - p-value - 16 - Bird 7358', full.names = T)
 knitr::include_graphics(filenames)
 ```
 
-### PCA (syllable averaged)
 
-```{r tuning-7358-pca, out.width='100%'}
-filenames = list.files(path = 'Figures/Syllable distance/', 
-                    pattern = 'violin - pca - Bird 7358', full.names = T)
-knitr::include_graphics(filenames)
+## UMAP - Motif
+
+
+```{r tuning-7358-umap_bout, out.height='100%', out.width='100%', cache=FALSE, fig.cap='UMAP projection of song trajectory with neuron spikes shown as dots.', results = 'asis'}
+
+# Load images 
+library(htmlwidgets)
+library(slickR)
+library(stringr)
+filenames = list.files(path = 'Figures/Trajectories/',
+                       pattern = 'tuning-curve - umap - 16 - Bird 7358', full.names = T)
+filenames = as.data.frame(str_match(filenames, "Figures/Trajectories/tuning-curve - umap - 16 - Bird (\\d+) - Session (\\d+) - unit (\\d+).png"))
+colnames(filenames) = c("filename","bird", "session","neuron")
+dir.create('docs/')
+dir.create('docs/Figures/')
+dir.create('docs/Figures/Trajectories/')
+
+file.copy(filenames$filename, "docs/Figures/Trajectories")
+
+
+cP1 <- htmlwidgets::JS("function(slick,index) {
+                            return '<a>'+(index+1)+'</a>';
+                       }")
+opts <- settings(
+  dots = TRUE,
+  customPaging = cP1,
+  speed = 0,
+  adaptiveHeight = FALSE)
+
+t = filenames[filenames$bird == 7358,]
+
+imgs_bare <- lapply(t$filename, function(x){
+  htmltools::tags$img(src = x)
+})
+
+sets <- split(
+  imgs_bare,
+  t$session)
+
+
+slicks <- lapply(sets,FUN = function(x,...){
+  slickR(obj = x,...) + opts
+}, height = "90%", width = "90%", padding = 0)
+Reduce(`%stack%`,slicks)
+
+
 ```
+
+

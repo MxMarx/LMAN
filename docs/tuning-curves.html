@@ -23,7 +23,7 @@
 <meta name="author" content="Ruby Marx" />
 
 
-<meta name="date" content="2023-04-18" />
+<meta name="date" content="2023-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,9 +341,10 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#clustering-coefficient"><i class="fa fa-check"></i>Clustering Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#spectrogram-reconstructions"><i class="fa fa-check"></i><b>7.3</b> Spectrogram Reconstructions</a></li>
-<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.4</b> Syllable Clustering</a></li>
-<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.5</b> Bird 7358</a></li>
-<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.6</b> Bird 6951</a></li>
+<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#limitations-of-vae"><i class="fa fa-check"></i><b>7.4</b> Limitations of VAE</a></li>
+<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.5</b> Syllable Clustering</a></li>
+<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.6</b> Bird 7358</a></li>
+<li class="chapter" data-level="7.7" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.7</b> Bird 6951</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>8</b> Syntax</a></li>
 <li class="chapter" data-level="9" data-path="trajectories.html"><a href="trajectories.html"><i class="fa fa-check"></i><b>9</b> Trajectories</a>
@@ -369,13 +370,22 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="tuning-curves.html"><a href="tuning-curves.html"><i class="fa fa-check"></i><b>11</b> Tuning Curves</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.1</b> Bird 7358</a>
+<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#methods"><i class="fa fa-check"></i><b>11.1</b> Methods</a>
 <ul>
 <li class="chapter" data-level="11.1.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca"><i class="fa fa-check"></i><b>11.1.1</b> PCA</a></li>
-<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song"><i class="fa fa-check"></i><b>11.1.2</b> PCA (over song)</a></li>
-<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song---time-stretched"><i class="fa fa-check"></i><b>11.1.3</b> PCA (over song - time stretched)</a></li>
-<li class="chapter" data-level="11.1.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-syllable-averaged"><i class="fa fa-check"></i><b>11.1.4</b> PCA (syllable averaged)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-statistic"><i class="fa fa-check"></i><b>11.1.2</b> F-statistic</a></li>
+<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#considerations"><i class="fa fa-check"></i><b>11.1.3</b> Considerations</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.2</b> Bird 7358</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca---motif"><i class="fa fa-check"></i><b>11.2.1</b> PCA - Motif</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat---motif"><i class="fa fa-check"></i><b>11.2.2</b> F-stat - Motif</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value---motif"><i class="fa fa-check"></i><b>11.2.3</b> P-value - Motif</a></li>
+<li class="chapter" data-level="11.2.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-1"><i class="fa fa-check"></i><b>11.2.4</b> PCA</a></li>
+<li class="chapter" data-level="11.2.5" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat"><i class="fa fa-check"></i><b>11.2.5</b> F-stat</a></li>
+<li class="chapter" data-level="11.2.6" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value"><i class="fa fa-check"></i><b>11.2.6</b> P-value</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tuning-curves.html"><a href="tuning-curves.html#umap---motif"><i class="fa fa-check"></i><b>11.3</b> UMAP - Motif</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -397,30 +407,71 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="tuning-curves" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">11</span> Tuning Curves<a href="tuning-curves.html#tuning-curves" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="bird-7358-2" class="section level2 panelset hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Bird 7358<a href="tuning-curves.html#bird-7358-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="methods" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Methods<a href="tuning-curves.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To examine the influence of LMAN activity on acoustic features, I compared VAE space at each point in time by using PCA and by measuring the overlap between latent dimensions distribution with and without a spike. In these analyses, each time point in each rendition is categorized as containing an LMAN spike if a spike occurred within 20 ms.</p>
+<p>First, these methods are applied to individual syllables, and then a-b-c motifs.</p>
 <div id="pca" class="section level3 hasAnchor" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> PCA<a href="tuning-curves.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PCA is calculated independently for each 20 ms time bin.</p>
-<p>Shaded areas are 95% confidence interval.</p>
-<p><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Principle components are calculated from the VAE dimensions independently at each point in time for each syllable, using a <span class="math inline">\(\sigma=20\text{ ms}\)</span> weighted kernel.</p>
+<p>One consideration regarding PCA is that if there is any imprecision in syllable onset time or syllable duration, the first PC will probably end up lining up with the time dimension. One way to account for this is to rotate the PC axes and measure the axis orthogonal to time.</p>
 </div>
-<div id="pca-over-song" class="section level3 hasAnchor" number="11.1.2">
-<h3><span class="header-section-number">11.1.2</span> PCA (over song)<a href="tuning-curves.html#pca-over-song" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PCA is calculated across the entire song.</p>
-<p><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20unstretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="f-statistic" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> F-statistic<a href="tuning-curves.html#f-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To determine the separation between traces with and without a spike in LMAN, I used a slightly modified F-statistic (might be the equivalent of Hotelling’s T-squared?). The latent VAE dimensions are reasonably normally distributed, so using the variability of the euclidean distances should be valid, which can be used to calculate p-values at each point in time.</p>
+<p><span class="math display">\[
+\text{between-group variability} = \sum_{i=1}^{K} n_i\|\bar{Y}_{i\cdot} - \bar{Y}\|_2
+\]</span>
+<span class="math display">\[
+\text{within-group variability} = \sum_{i=1}^{K} \sum_{j=1}^{n_i} \|Y_{ij} - \bar{Y}_i\|_2
+\]</span></p>
+<p><span class="math display">\[
+F = \frac{\text{between-group variability}}{\text{within-group variability}} \times \frac{N-k}{k-1}
+\]</span></p>
 </div>
-<div id="pca-over-song---time-stretched" class="section level3 hasAnchor" number="11.1.3">
-<h3><span class="header-section-number">11.1.3</span> PCA (over song - time stretched)<a href="tuning-curves.html#pca-over-song---time-stretched" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PCA is calculated across the entire song.</p>
-<p>Syllables are stretched to equal duration.</p>
-<p><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20stretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20stretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20stretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20stretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20mean%20-%20stretched%20-%20pca_all%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="considerations" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Considerations<a href="tuning-curves.html#considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A 10 ms latency between LMAN and RA <span class="citation">(<a href="references.html#ref-troyer_associational_2000" role="doc-biblioref">Troyer &amp; Doupe, 2000</a>)</span> and ~15 ms between RA and acoustic change <span class="citation">(<a href="references.html#ref-fee_neural_2004" role="doc-biblioref">Fee et al., 2004</a>)</span> produces a minimum of 25 ms between LMAN spikes and acoustic changes. One weakness with the shotgun VAE approach is that the latent dimensions encode the full 100ms window, so it might not be temporally precise enough for everything. As an alternative, I’ve experimented with using the state values from sequence-to-sequence recurrent autoencoders. The disadvantage of these models is that including a variational component in the hidden state might not be possible, although using a variational model isn’t strictly necessary. A possible advantage of VAE’s temporal imprecision is that any effect will be within the VAE window, and we do not need to take latency into account to observe overal impact on song.</p>
 </div>
-<div id="pca-syllable-averaged" class="section level3 hasAnchor" number="11.1.4">
-<h3><span class="header-section-number">11.1.4</span> PCA (syllable averaged)<a href="tuning-curves.html#pca-syllable-averaged" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="Figures/Syllable%20distance/violin%20-%20pca%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20pca%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20pca%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20pca%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Syllable%20distance/violin%20-%20pca%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bird-7358-2" class="section level2 panelset hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Bird 7358<a href="tuning-curves.html#bird-7358-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pca---motif" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> PCA - Motif<a href="tuning-curves.html#pca---motif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20pca_bout%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20pca_bout%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20pca_bout%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20pca_bout%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20pca_bout%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="f-stat---motif" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> F-stat - Motif<a href="tuning-curves.html#f-stat---motif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20fstat_bout%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20fstat_bout%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20fstat_bout%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20fstat_bout%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20fstat_bout%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="p-value---motif" class="section level3 hasAnchor" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> P-value - Motif<a href="tuning-curves.html#p-value---motif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20regression_bout%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20regression_bout%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20regression_bout%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20regression_bout%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20regression_bout%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pca-1" class="section level3 hasAnchor" number="11.2.4">
+<h3><span class="header-section-number">11.2.4</span> PCA<a href="tuning-curves.html#pca-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20PCA%201%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20PCA%201%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20PCA%201%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20PCA%201%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20PCA%201%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="f-stat" class="section level3 hasAnchor" number="11.2.5">
+<h3><span class="header-section-number">11.2.5</span> F-stat<a href="tuning-curves.html#f-stat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20F-stat%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20F-stat%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20F-stat%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20F-stat%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20F-stat%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="p-value" class="section level3 hasAnchor" number="11.2.6">
+<h3><span class="header-section-number">11.2.6</span> P-value<a href="tuning-curves.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Figures/Trajectories/tuning-curve%20-%20p-value%20-%2016%20-%20Bird%207358%20-%20Session%2013.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20p-value%20-%2016%20-%20Bird%207358%20-%20Session%2014.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20p-value%20-%2016%20-%20Bird%207358%20-%20Session%2017.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20p-value%20-%2016%20-%20Bird%207358%20-%20Session%203.png" width="100%" style="display: block; margin: auto;" /><img src="Figures/Trajectories/tuning-curve%20-%20p-value%20-%2016%20-%20Bird%207358%20-%20Session%209.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="umap---motif" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> UMAP - Motif<a href="tuning-curves.html#umap---motif" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+<div class="figure" style="text-align: center">
+<div id="htmlwidget-f6fc06052a4ea898d087" style="width:90%;height:100%;" class="slickR html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f6fc06052a4ea898d087">{"x":[{"obj":"<div class=\"baseDiv_bump_482165883528069\">\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 13 - unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 13 - unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_482165883528069","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_429730842588469\">\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 14 - unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 14 - unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_429730842588469","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_00714644230902195\">\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 17 - unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 17 - unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_00714644230902195","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_883819094859064\">\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 3 - unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 3 - unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_883819094859064","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_989531375467777\">\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 9 - unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 9 - unit 2.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/Trajectories/tuning-curve - umap - 16 - Bird 7358 - Session 9 - unit 3.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_989531375467777","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}}],"evals":["0.slickOpts.customPaging","1.slickOpts.customPaging","2.slickOpts.customPaging","3.slickOpts.customPaging","4.slickOpts.customPaging"],"jsHooks":[]}</script>
+<p class="caption">
+(#fig:tuning-7358-umap_bout)UMAP projection of song trajectory with neuron spikes shown as dots.
+</p>
+</div>
 
-</div>
 </div>
 </div>
             </section>

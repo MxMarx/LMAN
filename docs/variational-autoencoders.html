@@ -23,7 +23,7 @@
 <meta name="author" content="Ruby Marx" />
 
 
-<meta name="date" content="2023-04-18" />
+<meta name="date" content="2023-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,9 +341,10 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#clustering-coefficient"><i class="fa fa-check"></i>Clustering Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#spectrogram-reconstructions"><i class="fa fa-check"></i><b>7.3</b> Spectrogram Reconstructions</a></li>
-<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.4</b> Syllable Clustering</a></li>
-<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.5</b> Bird 7358</a></li>
-<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.6</b> Bird 6951</a></li>
+<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#limitations-of-vae"><i class="fa fa-check"></i><b>7.4</b> Limitations of VAE</a></li>
+<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.5</b> Syllable Clustering</a></li>
+<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.6</b> Bird 7358</a></li>
+<li class="chapter" data-level="7.7" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.7</b> Bird 6951</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>8</b> Syntax</a></li>
 <li class="chapter" data-level="9" data-path="trajectories.html"><a href="trajectories.html"><i class="fa fa-check"></i><b>9</b> Trajectories</a>
@@ -369,13 +370,22 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="tuning-curves.html"><a href="tuning-curves.html"><i class="fa fa-check"></i><b>11</b> Tuning Curves</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.1</b> Bird 7358</a>
+<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#methods"><i class="fa fa-check"></i><b>11.1</b> Methods</a>
 <ul>
 <li class="chapter" data-level="11.1.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca"><i class="fa fa-check"></i><b>11.1.1</b> PCA</a></li>
-<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song"><i class="fa fa-check"></i><b>11.1.2</b> PCA (over song)</a></li>
-<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song---time-stretched"><i class="fa fa-check"></i><b>11.1.3</b> PCA (over song - time stretched)</a></li>
-<li class="chapter" data-level="11.1.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-syllable-averaged"><i class="fa fa-check"></i><b>11.1.4</b> PCA (syllable averaged)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-statistic"><i class="fa fa-check"></i><b>11.1.2</b> F-statistic</a></li>
+<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#considerations"><i class="fa fa-check"></i><b>11.1.3</b> Considerations</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.2</b> Bird 7358</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca---motif"><i class="fa fa-check"></i><b>11.2.1</b> PCA - Motif</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat---motif"><i class="fa fa-check"></i><b>11.2.2</b> F-stat - Motif</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value---motif"><i class="fa fa-check"></i><b>11.2.3</b> P-value - Motif</a></li>
+<li class="chapter" data-level="11.2.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-1"><i class="fa fa-check"></i><b>11.2.4</b> PCA</a></li>
+<li class="chapter" data-level="11.2.5" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat"><i class="fa fa-check"></i><b>11.2.5</b> F-stat</a></li>
+<li class="chapter" data-level="11.2.6" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value"><i class="fa fa-check"></i><b>11.2.6</b> P-value</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tuning-curves.html"><a href="tuning-curves.html#umap---motif"><i class="fa fa-check"></i><b>11.3</b> UMAP - Motif</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -441,8 +451,12 @@ Figure 7.3: Traversing the embedding space from the centroid of syllable “i”
 </p>
 </div>
 </div>
-<div id="syllable-clustering" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Syllable Clustering<a href="variational-autoencoders.html#syllable-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="limitations-of-vae" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Limitations of VAE<a href="variational-autoencoders.html#limitations-of-vae" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The ‘shotgun-VAE’ approach provides a continuous readout of the latent dimensions throughout song, but as a convolutional autoencoder, the latent dimensions encode the full 100ms time window. As an LSTM autoencoder could be used as an alternative, although the latent dimensions might be less interpretable without a variational constraint and it’s not immediately clear to me how to add a variational component to a recurrent network.</p>
+</div>
+<div id="syllable-clustering" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Syllable Clustering<a href="variational-autoencoders.html#syllable-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:vae-umap"></span>
 <img src="Figures/VAE/umap%20-%2032%20-%20bird%207358.png" alt="Syllable clusters from embedded dimensions." width="80%" /><img src="Figures/VAE/umap%20-%2032%20-%20bird%206951.png" alt="Syllable clusters from embedded dimensions." width="80%" />
 <p class="caption">
@@ -450,8 +464,8 @@ Figure 7.4: Syllable clusters from embedded dimensions.
 </p>
 </div>
 </div>
-<div id="bird-7358" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> Bird 7358<a href="variational-autoencoders.html#bird-7358" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bird-7358" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Bird 7358<a href="variational-autoencoders.html#bird-7358" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:vae-trajectory-7358"></span>
 <div id="htmlwidget-ba5dee676f02d44151a5" style="width:90%;height:100%;" class="slickR html-widget "></div>
 <script type="application/json" data-for="htmlwidget-ba5dee676f02d44151a5">{"x":[{"obj":"<div class=\"baseDiv_bump_00174034992232919\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 13 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 13 - Unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_00174034992232919","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_655597323086113\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 14 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 14 - Unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_655597323086113","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_297011375660077\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 17 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 17 - Unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_297011375660077","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_2740912088193\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 3 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 3 - Unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_2740912088193","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_521354203810915\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 9 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 9 - Unit 2.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 7358 - Session 9 - Unit 3.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_521354203810915","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}}],"evals":["0.slickOpts.customPaging","1.slickOpts.customPaging","2.slickOpts.customPaging","3.slickOpts.customPaging","4.slickOpts.customPaging"],"jsHooks":[]}</script>
@@ -460,8 +474,8 @@ Figure 7.5: UMAP projection of song trajectory with neuron spikes shown as dots.
 </p>
 </div>
 </div>
-<div id="bird-6951" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> Bird 6951<a href="variational-autoencoders.html#bird-6951" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bird-6951" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Bird 6951<a href="variational-autoencoders.html#bird-6951" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:vae-trajectory-6951"></span>
 <div id="htmlwidget-e346ca584c748eea3ffb" style="width:90%;height:100%;" class="slickR html-widget "></div>
 <script type="application/json" data-for="htmlwidget-e346ca584c748eea3ffb">{"x":[{"obj":"<div class=\"baseDiv_bump_573153831064701\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 4 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 4 - Unit 2.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 4 - Unit 3.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_573153831064701","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_661586774047464\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 6 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 6 - Unit 2.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_661586774047464","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}},{"obj":"<div class=\"baseDiv_bump_210671392502263\">\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 8 - Unit 1.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 8 - Unit 2.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 8 - Unit 3.png\"/>\n  <\/div>\n  <div>\n    <img src=\"Figures/VAE/umap - spikes - Bird 6951 - Session 8 - Unit 4.png\"/>\n  <\/div>\n<\/div>","divName":"baseDiv_bump_210671392502263","slideh":"90%","slidew":"90%","slickOpts":{"adaptiveHeight":false,"customPaging":"function(slick,index) {\n                            return '<a>'+(index+1)+'<\/a>';\n                       }","dots":true,"speed":0}}],"evals":["0.slickOpts.customPaging","1.slickOpts.customPaging","2.slickOpts.customPaging"],"jsHooks":[]}</script>

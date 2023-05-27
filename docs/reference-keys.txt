@@ -147,6 +147,7 @@ variational-autoencoders
 training
 accuracy
 spectrogram-reconstructions
+limitations-of-vae
 syllable-clustering
 bird-7358
 bird-6951
@@ -165,8 +166,15 @@ centrality-2
 clustering-coefficient-2
 pagerank-1
 tuning-curves
-bird-7358-2
+methods
 pca
-pca-over-song
-pca-over-song---time-stretched
-pca-syllable-averaged
+f-statistic
+considerations
+bird-7358-2
+pca---motif
+f-stat---motif
+p-value---motif
+pca-1
+f-stat
+p-value
+umap---motif

@@ -23,7 +23,7 @@
 <meta name="author" content="Ruby Marx" />
 
 
-<meta name="date" content="2023-04-18" />
+<meta name="date" content="2023-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,9 +341,10 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#clustering-coefficient"><i class="fa fa-check"></i>Clustering Coefficient</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#spectrogram-reconstructions"><i class="fa fa-check"></i><b>7.3</b> Spectrogram Reconstructions</a></li>
-<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.4</b> Syllable Clustering</a></li>
-<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.5</b> Bird 7358</a></li>
-<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.6</b> Bird 6951</a></li>
+<li class="chapter" data-level="7.4" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#limitations-of-vae"><i class="fa fa-check"></i><b>7.4</b> Limitations of VAE</a></li>
+<li class="chapter" data-level="7.5" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#syllable-clustering"><i class="fa fa-check"></i><b>7.5</b> Syllable Clustering</a></li>
+<li class="chapter" data-level="7.6" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-7358"><i class="fa fa-check"></i><b>7.6</b> Bird 7358</a></li>
+<li class="chapter" data-level="7.7" data-path="variational-autoencoders.html"><a href="variational-autoencoders.html#bird-6951"><i class="fa fa-check"></i><b>7.7</b> Bird 6951</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>8</b> Syntax</a></li>
 <li class="chapter" data-level="9" data-path="trajectories.html"><a href="trajectories.html"><i class="fa fa-check"></i><b>9</b> Trajectories</a>
@@ -369,13 +370,22 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="tuning-curves.html"><a href="tuning-curves.html"><i class="fa fa-check"></i><b>11</b> Tuning Curves</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.1</b> Bird 7358</a>
+<li class="chapter" data-level="11.1" data-path="tuning-curves.html"><a href="tuning-curves.html#methods"><i class="fa fa-check"></i><b>11.1</b> Methods</a>
 <ul>
 <li class="chapter" data-level="11.1.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca"><i class="fa fa-check"></i><b>11.1.1</b> PCA</a></li>
-<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song"><i class="fa fa-check"></i><b>11.1.2</b> PCA (over song)</a></li>
-<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-over-song---time-stretched"><i class="fa fa-check"></i><b>11.1.3</b> PCA (over song - time stretched)</a></li>
-<li class="chapter" data-level="11.1.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-syllable-averaged"><i class="fa fa-check"></i><b>11.1.4</b> PCA (syllable averaged)</a></li>
+<li class="chapter" data-level="11.1.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-statistic"><i class="fa fa-check"></i><b>11.1.2</b> F-statistic</a></li>
+<li class="chapter" data-level="11.1.3" data-path="tuning-curves.html"><a href="tuning-curves.html#considerations"><i class="fa fa-check"></i><b>11.1.3</b> Considerations</a></li>
 </ul></li>
+<li class="chapter" data-level="11.2" data-path="tuning-curves.html"><a href="tuning-curves.html#bird-7358-2"><i class="fa fa-check"></i><b>11.2</b> Bird 7358</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="tuning-curves.html"><a href="tuning-curves.html#pca---motif"><i class="fa fa-check"></i><b>11.2.1</b> PCA - Motif</a></li>
+<li class="chapter" data-level="11.2.2" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat---motif"><i class="fa fa-check"></i><b>11.2.2</b> F-stat - Motif</a></li>
+<li class="chapter" data-level="11.2.3" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value---motif"><i class="fa fa-check"></i><b>11.2.3</b> P-value - Motif</a></li>
+<li class="chapter" data-level="11.2.4" data-path="tuning-curves.html"><a href="tuning-curves.html#pca-1"><i class="fa fa-check"></i><b>11.2.4</b> PCA</a></li>
+<li class="chapter" data-level="11.2.5" data-path="tuning-curves.html"><a href="tuning-curves.html#f-stat"><i class="fa fa-check"></i><b>11.2.5</b> F-stat</a></li>
+<li class="chapter" data-level="11.2.6" data-path="tuning-curves.html"><a href="tuning-curves.html#p-value"><i class="fa fa-check"></i><b>11.2.6</b> P-value</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="tuning-curves.html"><a href="tuning-curves.html#umap---motif"><i class="fa fa-check"></i><b>11.3</b> UMAP - Motif</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
